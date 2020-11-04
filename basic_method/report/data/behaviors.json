@@ -1,0 +1,25 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "新增城市",
+    "children" : [ {
+      "name" : "登录功能",
+      "children" : [ {
+        "name" : "test_log_in",
+        "uid" : "1857664fe28f50a8",
+        "parentUid" : "1bf732ccfb553c3c68d2c2132ee8e228",
+        "status" : "passed",
+        "time" : {
+          "start" : 1585037604091,
+          "stop" : 1585037610943,
+          "duration" : 6852
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "1bf732ccfb553c3c68d2c2132ee8e228"
+    } ],
+    "uid" : "da1434260985710f39fba89fcea46212"
+  } ]
+}

@@ -1,0 +1,9 @@
+device1:
+    platformName: Android           #系统
+    deviceName: 3HX0217311002113   #手机设备号；通过adb devices获得
+    platformVersion: 9            #安卓版本号
+    appPackage: com.ldygo.qhzc    #包名
+    appActivity: ui.home.HomeActivity #活动名（各个手机系统内可能不一样）
+    unicodeKeyboard: True
+    resetKeyboard: True
+    newCommandTimeout:  6000      #appium超时session时间

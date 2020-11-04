@@ -1,0 +1,108 @@
+{
+  "uid" : "3dc4d1abe0a67c54",
+  "name" : "test_case",
+  "fullName" : "test_pytest-allure3.Test_case#test_case",
+  "historyId" : "c9acacb8ab55e5be42695b7b73193652",
+  "time" : {
+    "start" : 1585047678238,
+    "stop" : 1585047678238,
+    "duration" : 0
+  },
+  "status" : "failed",
+  "statusMessage" : "AssertionError: assert 10 == 7",
+  "statusTrace" : "self = <test.demo1.test_pytest-allure3.Test_case object at 0x03BA60B0>\n\n    @allure.story(\"定义场景\")\n    def test_case(self):\n        with allure.step(\"定义步骤\"):\n            C =case().add(a,b)\n        with allure.step(\"断言\"):\n>           assert C == 7\nE           assert 10 == 7\n\ntest_pytest-allure3.py:13: AssertionError",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "AssertionError: assert 10 == 7",
+    "statusTrace" : "self = <test.demo1.test_pytest-allure3.Test_case object at 0x03BA60B0>\n\n    @allure.story(\"定义场景\")\n    def test_case(self):\n        with allure.step(\"定义步骤\"):\n            C =case().add(a,b)\n        with allure.step(\"断言\"):\n>           assert C == 7\nE           assert 10 == 7\n\ntest_pytest-allure3.py:13: AssertionError",
+    "steps" : [ {
+      "name" : "定义步骤",
+      "time" : {
+        "start" : 1585047678238,
+        "stop" : 1585047678238,
+        "duration" : 0
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : false,
+      "stepsCount" : 0
+    }, {
+      "name" : "断言",
+      "time" : {
+        "start" : 1585047678238,
+        "stop" : 1585047678238,
+        "duration" : 0
+      },
+      "status" : "failed",
+      "statusMessage" : "AssertionError: assert 10 == 7\n",
+      "statusTrace" : "  File \"d:\\python_work\\test\\demo1\\test_pytest-allure3.py\", line 13, in test_case\n    assert C == 7\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "417b0dc540d709ca",
+      "name" : "stdout",
+      "source" : "417b0dc540d709ca.txt",
+      "type" : "text/plain",
+      "size" : 3
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true,
+    "stepsCount" : 2
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "定义功能"
+  }, {
+    "name" : "story",
+    "value" : "定义场景"
+  }, {
+    "name" : "suite",
+    "value" : "test_pytest-allure3"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_case"
+  }, {
+    "name" : "host",
+    "value" : "law"
+  }, {
+    "name" : "thread",
+    "value" : "7608-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_pytest-allure3"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3dc4d1abe0a67c54.json",
+  "parameterValues" : [ ]
+}

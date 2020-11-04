@@ -1,0 +1,29 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "test_pytest",
+    "children" : [ {
+      "name" : "test_pytest--allure",
+      "children" : [ {
+        "name" : "Test_addcity",
+        "children" : [ {
+          "name" : "test_log_in",
+          "uid" : "1857664fe28f50a8",
+          "parentUid" : "003b027d3a291808b5434b34a465096b",
+          "status" : "passed",
+          "time" : {
+            "start" : 1585037604091,
+            "stop" : 1585037610943,
+            "duration" : 6852
+          },
+          "flaky" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "003b027d3a291808b5434b34a465096b"
+      } ],
+      "uid" : "ad184adb80a17dad7afda286ba6a7719"
+    } ],
+    "uid" : "694e68deb324bbeee7e7d824ab662b5e"
+  } ]
+}

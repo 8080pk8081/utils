@@ -1,0 +1,25 @@
+{
+  "uid" : "ab17fc5a4eb3bca4b216b548c7f9fcbc",
+  "name" : "timeline",
+  "children" : [ {
+    "name" : "law",
+    "children" : [ {
+      "name" : "12408-MainThread",
+      "children" : [ {
+        "name" : "test_log_in",
+        "uid" : "1857664fe28f50a8",
+        "parentUid" : "50f89d4cd87fde94d405db5c91314c09",
+        "status" : "passed",
+        "time" : {
+          "start" : 1585037604091,
+          "stop" : 1585037610943,
+          "duration" : 6852
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "50f89d4cd87fde94d405db5c91314c09"
+    } ],
+    "uid" : "d112f8fa27cce3f60e4371f8f12ef086"
+  } ]
+}

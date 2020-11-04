@@ -1,0 +1,92 @@
+{
+  "uid" : "1857664fe28f50a8",
+  "name" : "test_log_in",
+  "fullName" : "test_pytest.test_pytest--allure.Test_addcity#test_log_in",
+  "historyId" : "2e659c17f6e61e751d4ee38d4b1bf6a3",
+  "time" : {
+    "start" : 1585037604091,
+    "stop" : 1585037610943,
+    "duration" : 6852
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "输入手机号",
+      "time" : {
+        "start" : 1585037604589,
+        "stop" : 1585037604702,
+        "duration" : 113
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ {
+        "uid" : "4ceda13df573eabe",
+        "name" : "ca5de4de-d521-4af6-9cfe-a5fa4ddb0245-attachment.attach",
+        "source" : "4ceda13df573eabe.attach",
+        "type" : "text/plain",
+        "size" : 23
+      } ],
+      "parameters" : [ ],
+      "attachmentsCount" : 1,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "story",
+    "value" : "登录功能"
+  }, {
+    "name" : "feature",
+    "value" : "新增城市"
+  }, {
+    "name" : "parentSuite",
+    "value" : "test_pytest"
+  }, {
+    "name" : "suite",
+    "value" : "test_pytest--allure"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_addcity"
+  }, {
+    "name" : "host",
+    "value" : "law"
+  }, {
+    "name" : "thread",
+    "value" : "12408-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_pytest.test_pytest--allure"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "1857664fe28f50a8.json",
+  "parameterValues" : [ ]
+}

@@ -1,0 +1,65 @@
+{
+  "uid" : "b1a8273437954620fa374b796ffaacdd",
+  "name" : "behaviors",
+  "children" : [ {
+    "name" : "定义功能1",
+    "children" : [ {
+      "name" : "定义场景1",
+      "children" : [ {
+        "name" : "test_case",
+        "uid" : "2d61b1e770524cb3",
+        "parentUid" : "5be3329e6a0ceb768ee8bf4c7d73d6a1",
+        "status" : "passed",
+        "time" : {
+          "start" : 1585048164185,
+          "stop" : 1585048164185,
+          "duration" : 0
+        },
+        "flaky" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "5be3329e6a0ceb768ee8bf4c7d73d6a1"
+    } ],
+    "uid" : "80bf0d046f7e2cef1a5fe7c6df5ceab2"
+  }, {
+    "name" : "定义功能2",
+    "children" : [ {
+      "name" : "定义场景2",
+      "children" : [ {
+        "name" : "test_case",
+        "uid" : "3b2bf5a31f7e9cd6",
+        "parentUid" : "7acc31c43cceea1302a3e4e17e41e5fe",
+        "status" : "failed",
+        "time" : {
+          "start" : 1585048164211,
+          "stop" : 1585048164212,
+          "duration" : 1
+        },
+        "flaky" : true,
+        "parameters" : [ ]
+      } ],
+      "uid" : "7acc31c43cceea1302a3e4e17e41e5fe"
+    } ],
+    "uid" : "41913ed62a82caf8b634a6176ac522ae"
+  }, {
+    "name" : "定义功能3",
+    "children" : [ {
+      "name" : "定义场景3",
+      "children" : [ {
+        "name" : "test_case",
+        "uid" : "17a296ea4bba9a0a",
+        "parentUid" : "238df07eefba50d64b18f6e5e8026a2a",
+        "status" : "failed",
+        "time" : {
+          "start" : 1585048164243,
+          "stop" : 1585048164244,
+          "duration" : 1
+        },
+        "flaky" : true,
+        "parameters" : [ ]
+      } ],
+      "uid" : "238df07eefba50d64b18f6e5e8026a2a"
+    } ],
+    "uid" : "969dcc9171cc6b657f80601934fa4409"
+  } ]
+}

@@ -1,0 +1,21 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "test_pytest.test_pytest--allure",
+    "children" : [ {
+      "name" : "test_log_in",
+      "uid" : "1857664fe28f50a8",
+      "parentUid" : "91d97295f1d39c459d3d177c326781fa",
+      "status" : "passed",
+      "time" : {
+        "start" : 1585037604091,
+        "stop" : 1585037610943,
+        "duration" : 6852
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "test_pytest.test_pytest--allure"
+  } ]
+}

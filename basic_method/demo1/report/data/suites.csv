@@ -1,0 +1,4 @@
+"Status","Name","Duration in ms","Description"
+"passed","test_pytest-allure1.Test_case#test_case","0",""
+"failed","test_pytest-allure2.Test_case#test_case","1",""
+"failed","test_pytest-allure3.Test_case#test_case","1",""

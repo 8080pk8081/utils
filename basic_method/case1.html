@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+                $('.singleSelect').select2();
+            });
+    </script>
+    <title>下拉框</title>
+</head>
+<body>
+    <div>
+        <select class="singleSelect" style="width: 200px;">
+            <option value="">--请选择--</option>
+            <option value="">阿里</option>
+            <option value="">阿姨</option>
+            <option value="">江南</option>
+            <option value="">杭州</option>
+            <option value="">无锡</option>
+            <option value="">上海</option>
+        </select>
+    </div>
+</body>
+</html>
