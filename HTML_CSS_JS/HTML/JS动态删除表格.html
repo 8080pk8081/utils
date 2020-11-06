@@ -1,0 +1,87 @@
+
+
+
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <title>引用js</title>
+
+
+</head>
+<body>
+<table width="500px" border="1">
+ //表格头部信息
+    <thead>
+      <tr>
+        <th>编号</th>
+        <th>姓名</th>
+        <th>身份</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    //表格内容信息
+    <tbody id="tbBody"></tbody>
+</table>
+
+<!--script中的type默认为"text/javascript"-->
+  <script type="text/javascript">
+    //创建一个数组
+    var per=[
+      {id:'001',name:'张三',job:'学生'},
+      {id:'002',name:'张三',job:'学生'},
+      {id:'003',name:'张三',job:'学生'},
+      {id:'004',name:'张三',job:'学生'}
+    ];
+    //打开窗口就执行
+    window.onload=function () {
+      var tbody=document.getElementById('tbBody');
+      for(var i=0;i<per.length;i++){
+        var trow=getDataRow(per[i]);
+        tbody.appendChild(trow)
+      }
+    }
+    //获取数据
+    function getDataRow(h) {
+      //创建行
+      var row=document.createElement('tr');
+      /*创建第一列id属性*/
+      //创建第一列id
+      var idCell=document.createElement('td');
+      //向id填充数据
+      idCell.innerText=h.id;
+      //加入行
+      row.appendChild(idCell);
+      /*创建第二列属性name 和上面类似*/
+      var nameCell=document.createElement('td');
+      nameCell.innerText=h.name;
+      row.appendChild(nameCell);
+      /*创建第三列属性job 和上面类似*/
+      var jobCell=document.createElement('td');
+      jobCell.innerText=h.job;
+      row.appendChild(jobCell);
+      //到这里，json中的数据已经添加到表格里面了，下面为每行末尾添加删除按钮
+      /*创建第四列属性 删除属性*/
+      var deleteCell=document.createElement('td');
+      //加入行
+      row.appendChild(deleteCell);
+      //创建一个删除按钮控件
+      var buttonCell=document.createElement('input');
+      //setAttribute()方法创建或改变某个新属性，如果指定属性已存在，则只设置该值
+      buttonCell.setAttribute('type','button');
+      buttonCell.setAttribute('value','删除');
+      //删除功能
+      buttonCell.onclick=function () {
+        if(confirm("确定删除这一行吗？")){
+          //找到按钮所在的行之后进行删除 parentNode节点查找
+          this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+        }
+      }
+      //吧删除按钮控件加入第四列属性 删除属性
+      deleteCell.appendChild(buttonCell);
+      //返回行的数据
+      return row;
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+	<meta charset="UTF-8">
+	<title>case1_js</title>
+
+</head>
+<body>
+	定义一个表单，命名
+ 	<form name="form1" action="#" onsubmit=" return funa() " method="post" >
+ 		名字: <input type="text" name="name"> <br>
+ 		年龄：<input type='text' name="age"><br>
+		<input type="submit" value="提交">
+	</form>
+
+
+<!--	一般js写在底部-->
+<!-- 表单的验证： -->
+	<script type="text/javascript">
+		function funa() {
+			var name=document.forms["form1"]["name"].value;
+			var age =+document.forms["form1"]["age"].value;
+			if (name == null ||  name == "") {
+				alert("姓名不能为空");
+				return false;
+			}
+			else if (age == null ||  age == "" || age >150 || age < 0) {
+				alert("年龄不能为空,且0-150之间整数");
+				return false;
+			}
+			else {
+				return 1;
+			}
+		}
+
+	</script>
+<!-- 		<script type="text/javascript">
+			function validateForm() {
+			    var x = document.forms["myForm"]["fname"].value;
+			    if (x == null || x == "") {
+			        alert("需要输入名字。");
+			        return false;
+			    }
+			}
+		</script> -->
+
+</body>
+</html>

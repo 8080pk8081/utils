@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="utf-8" />
+ <title>js置顶动画</title>
+ <style>
+ *{margin:0;padding:0;user-select:none;}
+ .move-box {height:100px;width:100px;line-height:100px;text-align:center;font-size:14px;background:#ccc;margin:0 auto;position:relative;transition:all .1s;}
+ .drag-box{width:1000px;margin:100px auto;border:1px dashed #ccc;font-size:0;background:url('./img/bg1.png') no-repeat center;background-size:80px;}
+ .drag-box::after{content:'';display:block;clear:both;} /***清浮动***/
+ .drag-box .label{height:100px;width:0;color:#fff;line-height:0;text-align:center;font-size:14px;display:inline-block;background:blue;}
+ .drag-box .close-btn{padding:2px;margin-left:10px;background:#eee;}
+ </style>
+</head>
+<body>
+ <div class="move-box">拖动元素</div>
+ <div class="drag-box">
+ <div class="label"></div>
+ </div>
+</body>
+<script>
+ (function(){
+ let boxId = 0;
+ let startX = null;
+ let startY = null;
+ let mouseX = null;
+ let mouseY = null;
+ let mBox = null;
+ function $$(str) {return document.querySelectorAll(str);}
+ // 计算鼠标是否在需要放置的框内
+ function computInEle(ele, x, y){
+ let left = ele.getBoundingClientRect().left;
+ let top = ele.getBoundingClientRect().top;
+ let width = ele.getBoundingClientRect().width;
+ let height = ele.getBoundingClientRect().height;
+ let xFlag = ( x > left && x < (left + width));
+ let yFlag = ( y > top && y < (top + height));
+ if (xFlag && yFlag) {
+ return true;
+ } else {
+ return false;
+ }
+ }
+ // 删除元素
+ $$('.drag-box')[0].onclick = function(e){
+ console.log(e);
+ if (e.srcElement.className == 'close-btn') {
+ this.removeChild(e.srcElement.parentNode);
+ setTimeout(() => {
+  alert('删除成功！');
+ }, 0);
+ }
+ }
+ // 鼠标按下复制一个元素
+ $$('.move-box')[0].onmousedown = function(e){
+ mouseX = e.pageX;
+ mouseY = e.pageY;
+ startX = this.getBoundingClientRect().left;
+ startY = this.getBoundingClientRect().top;
+ console.log(this.getBoundingClientRect());
+ // 复制一个元素追加到body模拟跟随鼠标移动效果
+ mBox = this.cloneNode(true);
+ mBox.style.position = 'fixed';
+ mBox.style.zIndex = '9999';
+ mBox.style.opacity = '.75';
+ mBox.style.left = startX + 'px';
+ mBox.style.top = startY + 'px';
+ mBox.id = 'moveBox' + (boxId++);
+ document.body.appendChild(mBox);
+ document.onmousemove = function(e){
+ mBox.style.left = startX + (e.pageX - mouseX) + 'px';
+ mBox.style.top = startY + (e.pageY - mouseY) + 'px';
+ };
+ };
+ // 鼠标按下放开事件
+ document.onmouseup = function(e){
+ let x = e.pageX;
+ let y = e.pageY;
+ let ele = $$('.drag-box')[0];
+ console.log(computInEle(ele, x, y));
+ if (mBox) {
+ // 松开鼠标时鼠标在拖拽框内，则将复制的元素追加到拖拽框内
+ if (computInEle(ele, x, y)) {
+  mBox.style.position = 'static';
+  mBox.style.display = 'block';
+  mBox.style.float = 'left';
+  mBox.style.margin = 'auto';
+  mBox.style.opacity = '1';
+  mBox.innerText = mBox.innerText +(boxId - 1);
+  let close = document.createElement('span');
+  close.className = 'close-btn';
+  close.innerText = '×';
+  close.title = '删除元素';
+  mBox.appendChild(close);
+  ele.appendChild(mBox);
+  mBox.onmousedown = null;
+ } else {
+  // 松开鼠标时鼠标不在拖拽框内，移除复制的元素
+  mBox.style.left = startX + 'px';
+  mBox.style.top = startY + 'px';
+  document.body.removeChild(document.body.lastElementChild);
+ }
+ startX = null;
+ startY = null;
+ mouseX = null;
+ mouseY = null;
+ mBox = null;
+ document.onmousemove = null;
+ }
+ };
+ })();
+</script>
+</html>
