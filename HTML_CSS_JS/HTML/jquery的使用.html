@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../JS/jquery-3.5.1.js"></script>
+</head>
+<body>
+ <!--div#page>div.logo+ul#myul>li*2>a    >>tab-->
+<div>
+	<div class="logo" id="123"> logo</div>
+	<ul id="myul1">
+		<li><a href="">1</a></li>
+		<li><a href="">2</a></li>
+	</ul>
+	<ul id="myul2">
+		<li><a href="">3</a></li>
+		<li><a href="">4</a></li>
+	</ul>
+	<ul id="myul3">
+		<li><a href="">5</a></li>
+		<li><a href="">6</a></li>
+	</ul>
+	<ul id="myul4">
+		<li><a href="">7</a></li>
+		<li><a href="">8</a></li>
+	</ul>
+		<ul id="myul5">
+		<li><a href="">9</a></li>
+		<li><a href="">10</a></li>
+	</ul>
+	<input id="page" type="button" value="点我弹窗" />
+</div>
+<script>
+	
+	$("#page").click(function event () {
+		alert("ok");
+	})
+</script>
+
+<!--jquery选择器
+	1.参考材料：https://www.w3school.com.cn/jquery/jquery_ref_selectors.asp
+	2.	$("ul li:eq(3)")  ul下的第4个li标签
+	$("ul#myul5 li:eq(1)")  id为myul5的ulul下的第2个li标签
+-->
+
+</body>
+
+</html>
