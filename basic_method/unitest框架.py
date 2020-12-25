@@ -2,15 +2,16 @@
 # -*- coding:utf-8 -*-
 # __author__ = "Liujinyao"
 
-import ddt
+from ddt import  ddt,data
 import unittest
 
-
+@ddt
 class u1(unittest.TestCase):
     def setUp(self):
         print("setUp")
-    def test_case1(self):
-        print("case1")
+    @data(1,3,4,6,8)
+    def test_case1(self,value):
+        print(value)
     def test_case2(self):
         print("case2")
     def tearDown(self):
