@@ -22,8 +22,8 @@ def Main(loops):
     """
     多线程主流程：
         创建实例；
-        开启进程；
-        join进程；
+        开启线程；
+        join线程；
     :param loops:
     :return:
     """
@@ -33,7 +33,7 @@ def Main(loops):
 
     for i in nloops:
         print("setUp",i,ctime())
-        t = threading.Thread(target=loop,args=(i,loops[i]))     #进程1等待4s，进程2等待2s；
+        t = threading.Thread(target=loop,args=(i,loops[i]))     #线程1等待4s，线程2等待2s；
         threads.append(t)
 
     for i  in nloops:
