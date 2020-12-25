@@ -1,0 +1,2 @@
+a = 'i am exec_debug.text!'
+print(a)

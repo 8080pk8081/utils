@@ -3,7 +3,7 @@
 # __author__ = "Liu Jin Yao"
 
 def filterdata(x):
-    return x>1
+    return None if x>1 else x
 
 if __name__ == '__main__':
     data=[0,4,2,5,6,7,-1,-2]
