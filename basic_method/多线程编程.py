@@ -2,10 +2,11 @@
 # @Time    : 2020/11/14 8:46 下午
 # @Author  : Liu Jin Yao
 # @File    : 多线程编程.py
-"""本文探索多线程编程"""
 
-import  threading
-from  time import sleep,ctime
+"""本文探索多线程编程的基本使用"""
+
+import threading
+from time import sleep, ctime
 
 
 def loop(nloop,s):
@@ -33,10 +34,10 @@ def Main(loops):
 
     for i in nloops:
         print("setUp",i,ctime())
-        t = threading.Thread(target=loop,args=(i,loops[i]))     #线程1等待4s，线程2等待2s；
+        t = threading.Thread(target=loop, args=(i,loops[i]))     #线程1等待4s，线程2等待2s；
         threads.append(t)
 
-    for i  in nloops:
+    for i in nloops:
         print("start",i,ctime())
         threads[i].start()
 

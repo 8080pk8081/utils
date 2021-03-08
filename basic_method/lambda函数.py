@@ -18,3 +18,8 @@ print(list(map(lambda x:x*2,list1)))
 b = lambda x: print(x)
 b(12)
 print(b(12))   # >> print() 返回None
+
+
+bbbb = list(map(lambda x:1 if x>3 else x,list1))
+print(bbbb)
+print(list(map(lambda x,y:x+y,[1,2,4],[1,2,5])))

@@ -10,6 +10,7 @@ if __name__ == '__main__':
     a = filter(filterdata,data)   #>> a python3的filter函数，返回一个可迭代的对象
     print(a)
     print(list(a))
+    print(list(filter(lambda x: x > 5 , data)))
 
 
 

@@ -15,3 +15,4 @@ print(any(result1))    #>>any函数，有一个为真则真
 print(any(result2))
 print(all(result1))     #>>all函数，全为真则真
 print(all(result2))
+print(all([]))
