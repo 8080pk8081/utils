@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery-ztree</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/zTree.v3/3.5.42/css/zTreeStyle/zTreeStyle.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/zTree.v3/3.5.42/js/jquery.ztree.all.min.js"></script>
+
+</head>
+<body>
+<div>
+    <ul id="tree" class="ztree"></ul>
+</div>
+<div>
+    <input type="button" value="获取" id="getuserid">
+</div>
+
+<script>
+    var zTreeObj;
+    var setting = {
+    data:{
+        simpleData: {
+                   enable: true,   //设置是否启用简单数据格式（zTree支持标准数据格式跟简单数据格式，上面例子中是标准数据格式）
+                      idKey: "id",     //设置启用简单数据格式时id对应的属性名称
+                      pidKey: "pId"    //设置启用简单数据格式时parentId对应的属性名称,ztree根据id及pid层级关系构建树结构 固定'pId'
+                }
+            },
+            check:{
+                enable: true         //设置是否显示checkbox复选框
+            }};
+    var data=[
+    {id:'1', pId:'0', name: "父节点1",userid:""},
+	{id:'21', pId:'1', name: "子节点1",userid:"456"},
+	{id:'45', pId:'1', name: "子节点2",userid:"456"},
+    {id:'2', pId:'0', name: "父节点2",userid:""},
+	{id:'23', pId:'2', name: "子节点21",userid:"456"},
+	{id:'55', pId:'2', name: "子节点22",userid:"456"},
+    ];
+     $(document).ready(function () {
+            zTreeObj = $.fn.zTree.init($("#tree"), setting, data); //初始化zTree，三个参数一次分别是容器(zTree 的容器 className 别忘了设置为 "ztree")、参数配置、数据源
+        });
+
+    $("#getuserid").on("click",function(){
+        nodes = zTreeObj.getCheckedNodes(true);
+            var users = new Array(); //创建list集合
+            var j = 0;
+            for(var i = 0; i < nodes.length; i++) {
+                users[j] = nodes[i].userid;
+                j++;
+            }
+            alert(users);
+
+    })
+</script>
+</body>
+</html>

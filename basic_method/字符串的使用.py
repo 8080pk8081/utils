@@ -8,7 +8,7 @@ find()方法
 replace()方法
 strip()方法
 split()方法
-isalpha()方法      -- 判断是否全是字母
+ss.isalpha()方法   -- 判断是否全是字母
 SS.isdigit()方法   -- 判断是否全是数字
 SS.isalnum()方法   -- 判断是否全是字母或数字
 SS.islower()方法   -- 判读是否全是小写

@@ -8,9 +8,21 @@
 """
 本文探索list的用法
 """
-#列表与列表拓展
-list = [1,2,3,5]
-list1 = ['2',5,73,6]
-print(list1)
-list1.extend(list)
-print(list1)
+import  random
+# #列表与列表拓展
+# list = [1,2,3,5]
+# list1 = ['2',5,73,6]
+# print(list1)
+# list1.extend(list)
+# print(list1)
+
+
+# 通过简单的对数据源的增删来实现，锁机制。
+list2=["17607660940",'11100000014','123000000000']
+i =random.randint(0,len(list2)-1)
+print(i)
+op = list2.pop(i)
+print(op)
+print(list2)
+list2.append(op)
+print(list2)
