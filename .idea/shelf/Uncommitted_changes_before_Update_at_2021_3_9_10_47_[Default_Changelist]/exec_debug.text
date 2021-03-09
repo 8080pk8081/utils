@@ -1,0 +1,9 @@
+a = 'i am exec_debug.text!'
+print(a)
+
+class Abc():
+        """≤‚ ‘"""
+        @classmethod
+        def abc(cls):
+            print(cls.__doc__)
+            print("1")

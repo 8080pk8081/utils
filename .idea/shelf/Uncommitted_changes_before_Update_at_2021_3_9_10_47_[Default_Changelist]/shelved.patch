@@ -1,0 +1,1676 @@
+Index: basic_method/装饰器.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#! /usr/bin/env python\r\n# -*- coding:utf-8 -*-\r\n# __author__ = \"Liu Jin Yao\"\r\n\r\n\"\"\"\r\n本文档主要是研究python装饰器的原理及应用 -- docorator\r\n    装饰器之闭包的概念\r\n        1.函数嵌套 (函数内部定义函数)\r\n        2.内部函数作为返回值返回\r\n        3.内部函数必须要引用外部函数作用域里的变量。\r\n    用途：\r\n        1.logincheck\r\n\"\"\"\r\n\r\nx =4\r\n\r\ndef  log(fun):\r\n    \"\"\"\r\n    带参数的普通装饰器\r\n    :param fun:\r\n    :return:\r\n    \"\"\"\r\n    def warpper():             #1.函数嵌套(函数内部定义函数)\r\n        text =11\r\n        fun(text)                   #3.内部函数必须要引用外部函数作用域里的变量。\r\n        print(3)\r\n        print(x)                    # ps：x为全局变量，非外函数的局部变量\r\n    return warpper                  #2.内部函数作为返回值返回\r\n\r\n#装饰器带参数的\r\ndef logg(text):\r\n    def warpper(fun):\r\n        def inner_warpper(*args,**kwargs):\r\n            print(\"前置\")\r\n            a = fun(text)\r\n            print(\"后置\")\r\n            return  a\r\n        return inner_warpper\r\n    return warpper\r\n\r\n@log\r\ndef pro(text):\r\n    print(text)\r\n    return text\r\n\r\n@logg(\"nice\")\r\ndef proo(t):\r\n    print(\"中间\")\r\n    return t\r\n\r\n\r\n\r\nif __name__ == '__main__':\r\n    pro()\r\n    print(proo())
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- basic_method/装饰器.py	(revision 3cfeef6f89e977de56a916e0ce7eb5f0ca8ca298)
++++ basic_method/装饰器.py	(date 1614744018477)
+@@ -14,7 +14,7 @@
+ 
+ x =4
+ 
+-def  log(fun):
++def log(fun):
+     """
+     带参数的普通装饰器
+     :param fun:
+Index: basic_method/时间差.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#! /usr/bin/env python\r\n# -*- coding:utf-8 -*-\r\n# __author__ = \"Liu Jin Yao\"\"\r\nimport datetime\r\n\r\ndef date_subtraction(s,e):\r\n    \"\"\"\r\n    两个日期相减：如2020-11-27 12:07:41  -  2020-11-25 12:07:21   =2\r\n    :param s: 开始时间\r\n    :param e: 结束时间\r\n    :return: 结束时间-开始时间， 整天数。\r\n    \"\"\"\r\n    startTime = datetime.datetime.strptime(s, \"%Y-%m-%d %H:%M:%S\")\r\n    endTime = datetime.datetime.strptime(e, \"%Y-%m-%d %H:%M:%S\")\r\n    day = (endTime - startTime).days\r\n    return str(day)\r\n\r\nif __name__ == '__main__':\r\n    a= date_subtraction('2020-11-25 12:07:21', '2020-11-27 12:07:41')\r\n    print(a)\r\n    print(type(a))
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- basic_method/时间差.py	(revision 3cfeef6f89e977de56a916e0ce7eb5f0ca8ca298)
++++ basic_method/时间差.py	(date 1609201321590)
+@@ -18,4 +18,3 @@
+ if __name__ == '__main__':
+     a= date_subtraction('2020-11-25 12:07:21', '2020-11-27 12:07:41')
+     print(a)
+-    print(type(a))
+\ No newline at end of file
+Index: basic_method/过滤函数.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#! /usr/bin/env python\r\n# -*- coding:utf-8 -*-\r\n# __author__ = \"Liu Jin Yao\"\r\n\r\ndef filterdata(x):\r\n    return None if x>1 else x\r\n\r\nif __name__ == '__main__':\r\n    data=[0,4,2,5,6,7,-1,-2]\r\n    a = filter(filterdata,data)   #>> a python3的filter函数，返回一个可迭代的对象\r\n    print(a)\r\n    print(list(a))\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- basic_method/过滤函数.py	(revision 3cfeef6f89e977de56a916e0ce7eb5f0ca8ca298)
++++ basic_method/过滤函数.py	(date 1609741823628)
+@@ -5,6 +5,9 @@
+ def filterdata(x):
+     return None if x>1 else x
+ 
++def aa():
++    filter(lambda x,y:x in y.keys() )
++
+ if __name__ == '__main__':
+     data=[0,4,2,5,6,7,-1,-2]
+     a = filter(filterdata,data)   #>> a python3的filter函数，返回一个可迭代的对象
+Index: HTML_CSS_JS/HTML/JS+CSS实现弹出全屏灰黑色透明遮罩效果.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- HTML_CSS_JS/HTML/JS+CSS实现弹出全屏灰黑色透明遮罩效果.html	(date 1610006772710)
++++ HTML_CSS_JS/HTML/JS+CSS实现弹出全屏灰黑色透明遮罩效果.html	(date 1610006772710)
+@@ -0,0 +1,74 @@
++<!DOCTYPE html>
++<html>
++<head>
++<meta charset=" utf-8">
++<meta name="author" content="https://www.jb51.net/" />
++<title>CSS如何实现弹出一个全屏灰黑色透明遮罩效果-脚本之家</title>
++<style type="text/css">
++*
++{
++ margin:0px;
++ padding:0px;
++}
++.zhezhao
++{
++ width:100%;
++ height:100%;
++ background-color:#000;
++ filter:alpha(opacity=50);
++ -moz-opacity:0.5;
++ opacity:0.5;
++ position:absolute;
++ left:0px;
++ top:0px;
++ display:none;
++ z-index:1000;
++}
++.login
++{
++ width:280px;
++ height:180px;
++ position:absolute;
++ top:200px;
++ left:50%;
++ background-color:#000;
++ margin-left:-140px;
++ display:none;
++ z-index:1500;
++}
++.content
++{
++ margin-top:50px;
++ color:red;
++ line-height:200px;
++ height:200px;
++ text-align:center;
++}
++</style>
++<script type="text/javascript">
++window.onload=function()
++{
++ var zhezhao=document.getElementById("zhezhao");
++ var login=document.getElementById("login");
++ var bt=document.getElementById("bt");
++ var btclose=document.getElementById("btclose");
++
++ bt.onclick=function()
++ {
++  zhezhao.style.display="block";
++  login.style.display="block";
++ }
++ btclose.onclick=function()
++ {
++  zhezhao.style.display="none";
++  login.style.display="none";
++ }
++}
++</script>
++</head>
++<body>
++  <div class="zhezhao" id="zhezhao"></div>
++  <div class="login" id="login"><button id="btclose">点击关闭</button></div>
++  <div class="content">脚本之家欢迎您，<button id="bt">点击弹出遮罩</button></div>
++</body>
++</html>
+\ No newline at end of file
+Index: basic_method/时间函数.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#! /usr/bin/python3\r\n# -*- coding: utf-8 -*-\r\n# @Time : 2020/12/27 3:59 下午\r\n# @Author :\"Liu Jin Yao\"\r\n# @Email : 592203122@qq.com\r\n# @File : 时间函数.py\r\n\r\n\r\nimport time\r\n\r\n#默认秒级数据\r\nnow = time.time()\r\nprint(now)\r\n#10位时间戳\r\nr= int(now)\r\nprint(r)\r\n#13位时间戳\r\nrr = int(round(now*1000))\r\nprint(rr)\r\n#时间\r\nrrr = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(now))\r\nprint(rrr)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- basic_method/时间函数.py	(revision 3cfeef6f89e977de56a916e0ce7eb5f0ca8ca298)
++++ basic_method/时间函数.py	(date 1611828303595)
+@@ -11,7 +11,7 @@
+ #默认秒级数据
+ now = time.time()
+ print(now)
+-#10位时间戳
++#10位时间戳(秒级)
+ r= int(now)
+ print(r)
+ #13位时间戳
+@@ -20,3 +20,6 @@
+ #时间
+ rrr = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(now))
+ print(rrr)
++rrrr = time.strftime('%Y%m%d%H%M%S',time.localtime(time.time()))
++print(rrrr)
++import datetime
+\ No newline at end of file
+Index: HTML_CSS_JS/HTML/jquery实现页面Ctrl+F功能.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- HTML_CSS_JS/HTML/jquery实现页面Ctrl+F功能.html	(date 1609378326104)
++++ HTML_CSS_JS/HTML/jquery实现页面Ctrl+F功能.html	(date 1609378326104)
+@@ -0,0 +1,281 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Title</title>
++    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
++
++</head>
++<body>
++<input type="text" id="search">
++<input type="button" onclick="searchandlocation()" value="查找">
++<pre id="content">
++# coding=utf-8
++"""
++拓展httprunner 的内置函数，
++执行用例加载时，把此文件中的函数加到对应的debugtalk.py中，
++以实现公共函数的效果
++"""
++import calendar
++import datetime
++import logging
++import random
++import string
++import time
++from datetime import date
++from datetime import timedelta
++import pymysql
++
++import rsa
++import base64
++import os
++import re
++import hashlib
++import json
++
++from Crypto.Cipher import AES
++from rediscluster import RedisCluster
++
++logger = logging.getLogger('HttpRunnerManager')
++
++
++"""
++数据库信息
++"""
++db_env = {
++    "test": {
++        'stock': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'stock',
++                  'charset': 'utf8', 'port': 3322},
++        'price': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'price',
++                  'charset': 'utf8', 'port': 3322},
++        'um': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'um', 'charset': 'utf8',
++               'port': 3321},
++        'mop': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'mop', 'charset': 'utf8',
++                'port': 3321},
++        'orderdb': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'orderdb',
++                    'charset': 'utf8', 'port': 3323},
++        'work': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'work',
++                 'charset': 'utf8', 'port': 3326},
++        'pay': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'pay', 'charset': 'utf8',
++                'port': 3324},
++        'pcenter': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'pcenter',
++                    'charset': 'utf8', 'port': 3324},
++        'finance': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'finance',
++                    'charset': 'utf8', 'port': 3324},
++        'oper': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'oper',
++                 'charset': 'utf8', 'port': 3325},
++        'crp': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'crp', 'charset': 'utf8',
++                'port': 3325},
++        'xjob': {'host': '10.91.19.100', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'xjob',
++                 'charset': 'utf8', 'port': 3325}
++    },
++    "demo_show": {
++        'finance': {'host': '10.60.80.94', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'finance',
++                    'charset': 'utf8', 'port': 3311}
++    },
++    "sit": {
++        'stock': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'stock',
++                  'charset': 'utf8', 'port': 3322},
++        'price': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'price',
++                  'charset': 'utf8', 'port': 3322},
++        'um': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'um', 'charset': 'utf8',
++               'port': 3321},
++        'mop': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'mop', 'charset': 'utf8',
++                'port': 3321},
++        'orderdb': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'orderdb',
++                    'charset': 'utf8', 'port': 3323},
++        'work': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'work',
++                 'charset': 'utf8', 'port': 3326},
++        'pay': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'pay', 'charset': 'utf8',
++                'port': 3324},
++        'pcenter': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'pcenter',
++                    'charset': 'utf8', 'port': 3324},
++        'finance': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'finance',
++                    'charset': 'utf8', 'port': 3324},
++        'oper': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'oper',
++                 'charset': 'utf8', 'port': 3325},
++        'crp': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'crp', 'charset': 'utf8',
++                'port': 3325},
++        'xjob': {'host': '10.90.16.109', 'user': 'ldyop', 'passwd': 'Ldyop123@ldygo.com', 'db': 'xjob',
++                 'charset': 'utf8', 'port': 3325}
++    }
++}
++
++
++num_env = {
++    1: "test",
++    2: "demo_show",
++    5: "sit"
++}
++
++
++
++def get_date(days=0, separation='-', fmt=None):
++    """
++    获取日期：默认返回8位当前日期，分割符为-
++    :param days: 日期差，默认为0，整数类型，即当前日期。如为负数，即取之前n天日期；为正数，取之后日期
++    :param separation:日期分割符，默认为减号，字符串类型。
++    :return:
++    """
++    today = datetime.date.today()
++    days = datetime.timedelta(days=days)
++    target_date = today + days
++    return target_date.strftime(fmt or '%Y-%m-%d'.replace('-', separation))
++
++
++def get_time(hours=0, minutes=0, seconds=0, separation=':'):
++    """
++    获取时间：默认返回6位当前时间，分割符为：， 如10:17:43
++    :param hours: 小时差，默认为0，整数类型，即当前小时。如为负数，即取之前n个小时；为正数，取之后n个小时
++    :param minutes:分钟差，默认为0，整数类型，即当前分钟。如为负数，即取之前n分钟；为正数，取之后n分钟
++    :param seconds:秒差，默认为0，整数类型，即当前秒。如为负数，即取之前n秒；为正数，取之后n秒
++    :param separation:时间分割符，默认为冒号，字符串类型。
++    :return:
++    """
++    now = datetime.datetime.now()
++    timedelta = datetime.timedelta(hours=hours, minutes=minutes, seconds=seconds)
++    target_date = now + timedelta
++    return target_date.strftime('%H:%M:%S'.replace(':', separation))
++
++
++def get_datetime(days=0, hours=0, minutes=0, seconds=0, date_sep='-', time_sep=':', no_sep=False, start_date=None):
++    """
++    获取日期时间，默认为当前，格式：2019-08-28 10:41:35
++    :param days: 日期差，默认为0，整数类型，即当前日期。如为负数，即取之前n天日期；为正数，取之后日期
++    :param hours: 小时差，默认为0，整数类型，即当前小时。如为负数，即取之前n个小时；为正数，取之后n个小时
++    :param minutes:分钟差，默认为0，整数类型，即当前分钟。如为负数，即取之前n分钟；为正数，取之后n分钟
++    :param seconds:秒差，默认为0，整数类型，即当前秒。如为负数，即取之前n秒；为正数，取之后n秒
++    :param date_sep:日期分割符，默认为减号，字符串类型。
++    :param time_sep:时间分割符，默认为冒号，字符串类型。
++    :param no_sep:是否带分割符，默认为False,即带分割符。如果为True,即返回无分割符的14位日期时间，且日期和时间分割符的设置也失效。
++    :param start_data:指定开始时间点（格式:2019-08-28 10:41:35）, 默认为None，即开始时间点为当前日期时间，例子：
++    如get_datetime(days=1, start_data="2019-08-28 10:41:35") 返回值为2019-08-29 10:41:35
++    :return:
++    """
++    now = datetime.datetime.strptime(start_date, "%Y-%m-%d %H:%M:%S") if start_date else datetime.datetime.now()
++    timedelta = datetime.timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
++    target_date = now + timedelta
++    fmt = '%Y%m%d%H%M%S' if no_sep else '%Y-%m-%d %H:%M:%S'.replace('-', date_sep).replace(':', time_sep)
++    return target_date.strftime(fmt)
++
++
++def get_random_int(start=0, end=9, rtype='int'):
++    """
++    获取随机整数,范围0-9， start >= end
++    :param start:开始范围， 可为负数
++    :param end:结束范围， 可为负数
++    :return:
++    """
++    result = random.randint(start, end)
++    return result if rtype == 'int' else eval(f'{rtype}({result})')
++
++
++def timestamp(unit='s'):
++    """
++    获取时间戳的字串
++    默认返回秒，入参为’ms‘，返回毫秒
++    :param unit:
++    :return:
++    """
++    return str(time.time()).replace('.', '')[:[10, 13][unit == 'ms']]
++
++
++def get_random_str(str_len, chartset=None, chartset_extend=None, first_chartset=None, first_len=1, prefix='',
++                   suffix=''):
++    """
++    默认返回指定长度的英文大小写+数字+下划线组成的随机字串
++    可选字符集选项：'en_L','en_U','num','province_sh','underline','sp_chars'
++    :param str_len: 必填入参，字串长度
++    :param chartset:重新定义默认适用字符集，以列表形式传入，如chartset=['en_L', 'num'], 默认为：['en_L', 'en_U', 'num', 'underline']
++    :param chartset_extend:拓展默认适用字符集，以列表形式传入，如chartset_extend=['province_sh', 'sp_chars']
++    :param first_chartset:指定字串以什么字符集开头，如first_chartset='province_sh'（即以省份简称开头）
++    :param first_len:指定的开头字符集的长度，占用随机长度。需配合first_chartset使用，未指定first_chartset，此入参无效果。
++                    如first_len >= str_len，返回的字串将会是first_chartset所指定的字符集的first_len长度的随机字串。默认值为1
++    :param prefix:传入指定字串，作为随机字串的前缀，不占用指定的随机字串长度
++    :param suffix:传入指定字串，作为随机字串的后缀，不占用指定的随机字串长度
++    :return:
++    """
++    chart_dict = {
++        # 英文小写
++        'en_L': 'qwertyupasdfghjklzxcvbnm',
++        # 英文大写
++        'en_U': 'QWERTYUPASDFGHJKLZXCVBNM',
++        # 数字
++        'num': string.digits,
++        # 全国省份简称
++        'province_sh': r'京津冀晋蒙辽吉黑沪苏浙皖闽赣鲁豫鄂湘粤桂琼渝川黔滇藏陕甘青宁新台港澳',
++        # 下划线
++        'underline': '_',
++        # 英文特殊字符，包括下划线
++        'sp_chars': string.punctuation
++    }
++
++    # 默认的应用字符集
++    use_chartset = [
++        chart_dict['en_L'], chart_dict['en_U'],
++        chart_dict['num'], chart_dict['underline']
++    ]
++    # 重新定义字符集
++    if chartset:
++        use_chartset = []
++        for cs in chartset:
++            use_chartset.append(chart_dict[cs])
++
++    # 拓展字符集
++    if chartset_extend:
++        for cs in chartset_extend:
++            if chart_dict[cs] not in use_chartset:
++                use_chartset.append(chart_dict[cs])
++
++    chartset_str = ''.join(use_chartset)
++    # 设置开头的字符
++    if first_chartset:
++        return prefix + ''.join(random.choice(chart_dict[first_chartset]) for _ in range(first_len)) + \
++               ''.join(random.choice(chartset_str) for _ in range(str_len - first_len)) + suffix
++
++    return prefix + ''.join(random.choice(chartset_str) for _ in range(str_len)) + suffix
++
++
++def get_phone(ISP='simulate', prefix=None):
++    """
++    获取随机的11位手机号，可指定运营商号段，或使用自定义的前3位
++    :param ISP: 运营商名字串， 默认为all，即全部运营商（号段），
++        选项：yidong， liantong， dianxin， all（包括前三者）， simulate，
++        如果指定了不存在的运营商字串，则返回取all
++    :param prefix:可指定手机号前3位， 如设置了此入参，则ISP设置无效
++    :return:
++    """
++
++    class ISPClass:
++        """
++        号段数据
++        """
++        yidong = [139, 138, 137, 136, 135, 134, 159, 158, 157, 150, 151, 152, 147, 188, 187, 182, 183, 184, 178]
++        liantong = [130, 131, 132, 156, 155, 186, 185, 145, 176]
++        dianxin = [133, 153, 189, 180, 181, 177, 173]
++        simulate = [100 + x for x in range(10)]
++        all = yidong + liantong + dianxin
++
++    if prefix:
++        header = str(prefix)
++    else:
++        if hasattr(ISPClass, ISP):
++            """
++            获取指定运营商号段列表
++            """
++            choice_set = getattr(ISPClass, ISP)
++            hea…
++</pre>
++
++<script>
++    function searchandlocation() {
++        var content = $("#content").html();
++        var search = $('#search').val();
++        var reg = new RegExp(search,'g');
++        var  newHtml = content.replace(reg,'<span id="result" style="background:yellow;color:red;">' + search + '</span>');
++        $("#content").html(newHtml);
++        $('html, body').animate({scrollTop: $('#result').offset().top}, 500)
++    }
++</script>
++</body>
++</html>
+\ No newline at end of file
+Index: basic_method/正则表达式.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># -*- coding: utf-8 -*-\r\n# @Time    : 2020/11/14 5:56 下午\r\n# @Author  : Liu Jin Yao\r\n# @File    : 正则表达式.py\r\n\r\nimport re\r\n\r\n\r\nstr = \"['22','登陆成功'],['3','4'],['5','6']\"\r\n\r\np=\"\\['\\w+','\\w+'\\]\"     # \\[ >> 以[开头   \\] >>以]结束  '\\w+' >>一个或多个字母数字字符，被''包裹  ,两个值之间还有一个英文逗号'\r\na = re.findall(p,str)\r\nif a is not None:\r\n    print(a)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- basic_method/正则表达式.py	(revision 3cfeef6f89e977de56a916e0ce7eb5f0ca8ca298)
++++ basic_method/正则表达式.py	(date 1609316761404)
+@@ -8,7 +8,12 @@
+ 
+ str = "['22','登陆成功'],['3','4'],['5','6']"
+ 
+-p="\['\w+','\w+'\]"     # \[ >> 以[开头   \] >>以]结束  '\w+' >>一个或多个字母数字字符，被''包裹  ,两个值之间还有一个英文逗号'
++p="\['(\w+)','\w+'\]"     # \[ >> 以[开头   \] >>以]结束  '\w+' >>一个或多个字母数字字符，被''包裹  ,两个值之间还有一个英文逗号'
+ a = re.findall(p,str)
+ if a is not None:
+     print(a)
++
++str = "def abc():"
++p = "^def (\w+)\(\)"
++a = re.findall(p,str)
++print(a)
+\ No newline at end of file
+Index: Web Spider/zlm_csrf.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Web Spider/zlm_csrf.py	(date 1609899632777)
++++ Web Spider/zlm_csrf.py	(date 1609899632777)
+@@ -0,0 +1,42 @@
++#! /usr/bin/python3
++# -*- coding: utf-8 -*-
++# @Time : 2021/1/6 8:41
++# @Author :"Liu Jin Yao"
++# @Email : 592203122@qq.com
++# @File : zlm_csrf.py
++
++"""本文获取联动云致联盟的_csrf参数值"""
++import requests
++import  re
++
++
++RE = 'name="_csrf" value="(.+?)"/>'
++HOST='http://testerp-zlm.ldygo.com'
++PATH='/login'
++
++html = requests.post(HOST+PATH).text.encode('unicode_escape').decode("utf8")
++a = re.findall(RE,html)
++print(a[0])
++
++
++def get__csrf(text):
++    """
++        正则匹配获取联动云致联盟的_csrf参数值
++    :param text: 网页html-text
++    :return:
++    """
++    RE = 'name="_csrf" value="(.+?)"/>'
++    result = re.findall(RE, str(text))
++    return result[0] if result else None
++
++
++def get_jsessionid(text):
++    """
++    切割获取联动云致联盟的登录cookie：JSESSIONID
++    :param text:  登录成功接口返回的url
++    :return:JSESSIONID=***
++    """
++    return 'JSESSIONID='+str(text).split(";")[1].split("=")[1]
++if __name__ == '__main__':
++    # print((get__csrf("123")))
++    print(get_jsessionid('http://testerp-zlm.ldygo.com/welcome;jsessionid=3DE9B2F39544DC67CC98CD0DA4F2E2DA'))
+\ No newline at end of file
+Index: HTML_CSS_JS/HTML/jquery_sortable排序.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- HTML_CSS_JS/HTML/jquery_sortable排序.html	(date 1610349374389)
++++ HTML_CSS_JS/HTML/jquery_sortable排序.html	(date 1610349374389)
+@@ -0,0 +1,58 @@
++<!doctype html>
++<html lang="en">
++<head>
++  <meta charset="utf-8">
++  <title>jQuery UI 拖动（Draggable） + 排序（Sortable）</title>
++  <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
++  <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
++  <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
++  <link rel="stylesheet" href="jqueryui/style.css">
++  <style>
++  ul { list-style-type: none; margin: 0; padding: 0; margin-bottom: 10px; }
++  li { margin: 5px; padding: 5px; width: 150px; }
++  </style>
++
++</head>
++<body>
++
++<ul>
++  <li id="draggable" class="ui-state-highlight">请拖拽我</li>
++</ul>
++
++<ul id="sortable">
++  <li class="ui-state-default"><input type="checkbox">Item 1</li>
++  <li class="ui-state-default"><input type="checkbox">Item 2</li>
++  <li class="ui-state-default"><input type="checkbox">Item 3</li>
++  <li class="ui-state-default"><input type="checkbox">Item 4</li>
++  <li class="ui-state-default"><input type="checkbox">Item 5</li>
++</ul>
++<div><input type="button" id="2334" value="点击"></div>
++
++<script>
++  $(function() {
++    $( "#sortable" ).sortable({
++      revert: true,
++    });
++    $( "#draggable" ).draggable({
++      connectToSortable: "#sortable",
++      helper: "clone",
++      revert: "invalid"
++    });
++    $( "ul, li" ).disableSelection();
++  });
++
++    $("input[type='checkbox']").change(function(){
++        var obj = $("input[type='checkbox']");
++        var arr = [];
++        for(i=0;i<obj.length;i++){
++          if(obj[i].checked == true){ arr.push(obj[i])};
++        };
++        console.log(arr);
++        $( "#sortable" ).bind("sortstart",function(event,ui){
++            console.log("开始移动了");
++        });
++    });
++</script>
++</body>
++
++</html>
+\ No newline at end of file
+Index: HTML_CSS_JS/HTML/js动态增加行或删除最后一行.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- HTML_CSS_JS/HTML/js动态增加行或删除最后一行.html	(date 1613975841674)
++++ HTML_CSS_JS/HTML/js动态增加行或删除最后一行.html	(date 1613975841674)
+@@ -0,0 +1,31 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Title</title>
++</head>
++<body>
++<input type="button" value="add" onclick="addtablerows('table_data')">
++<input type="button" value="delete" onclick="deltablerows('#table_data tr:last-child')">
++<table id="table_data">
++</table>
++<script>
++    var index =0;
++    function addtablerows(id){
++            var obj = document.getElementById(id);
++            var newtr = obj.insertRow();
++            var cell1 = newtr.insertCell(0);
++            var cell2 = newtr.insertCell(1);
++            cell1.innerHTML='newcell' + index;
++            cell2.innerHTML='newcell' + index;
++            index = index +1;
++    }
++
++<!--删除最后一行-->
++    function deltablerows(css){
++        var obj = document.querySelector(css);
++        obj.remove();
++    }
++</script>
++</body>
++</html>
+\ No newline at end of file
+Index: HTML_CSS_JS/HTML/js动态增加行.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- HTML_CSS_JS/HTML/js动态增加行.html	(date 1613977918203)
++++ HTML_CSS_JS/HTML/js动态增加行.html	(date 1613977918203)
+@@ -0,0 +1,35 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <meta charset="UTF-8">
++    <title>Title</title>
++</head>
++<body>
++<input type="button" value="add" onclick="addtablerows('table_data')">
++<input type="button" value="delete" onclick="deltablerows('#table_data tr:last-child')">
++<table id="table_data">
++    <tr>
++        <th>1</th>
++        <th>2</th>
++    </tr>
++</table>
++<script>
++    var index =1;
++    function addtablerows(id){
++            var obj = document.getElementById(id);
++            var newtr = obj.insertRow();
++            var cell1 = newtr.insertCell(0);
++            var cell2 = newtr.insertCell(1);
++            cell1.innerHTML='newcell' + index;
++            cell2.innerHTML='newcell' + index;
++            index = index +1;
++    }
++
++<!--删除最后一行-->
++    function deltablerows(css){
++        var obj = document.querySelector(css);
++        obj.remove();
++    }
++</script>
++</body>
++</html>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/Project_Default.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/inspectionProfiles/Project_Default.xml	(date 1609115699940)
++++ .idea/inspectionProfiles/Project_Default.xml	(date 1609115699940)
+@@ -0,0 +1,13 @@
++<component name="InspectionProjectProfileManager">
++  <profile version="1.0">
++    <option name="myName" value="Project Default" />
++    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
++      <option name="ignoredIdentifiers">
++        <list>
++          <option value="xml.*" />
++          <option value="doSomeThing.http.logincheck.logincheck.Email" />
++        </list>
++      </option>
++    </inspection_tool>
++  </profile>
++</component>
+\ No newline at end of file
+Index: HTML_CSS_JS/HTML/JS动态删除表格.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n\r\n\r\n<!DOCTYPE html>\r\n<html lang=\"zh-hans\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <title>引用js</title>\r\n\r\n\r\n</head>\r\n<body>\r\n<table width=\"500px\" border=\"1\">\r\n //表格头部信息\r\n    <thead>\r\n      <tr>\r\n        <th>编号</th>\r\n        <th>姓名</th>\r\n        <th>身份</th>\r\n        <th>操作</th>\r\n      </tr>\r\n    </thead>\r\n    //表格内容信息\r\n    <tbody id=\"tbBody\"></tbody>\r\n</table>\r\n\r\n<!--script中的type默认为\"text/javascript\"-->\r\n  <script type=\"text/javascript\">\r\n    //创建一个数组\r\n    var per=[\r\n      {id:'001',name:'张三',job:'学生'},\r\n      {id:'002',name:'张三',job:'学生'},\r\n      {id:'003',name:'张三',job:'学生'},\r\n      {id:'004',name:'张三',job:'学生'}\r\n    ];\r\n    //打开窗口就执行\r\n    window.onload=function () {\r\n      var tbody=document.getElementById('tbBody');\r\n      for(var i=0;i<per.length;i++){\r\n        var trow=getDataRow(per[i]);\r\n        tbody.appendChild(trow)\r\n      }\r\n    }\r\n    //获取数据\r\n    function getDataRow(h) {\r\n      //创建行\r\n      var row=document.createElement('tr');\r\n      /*创建第一列id属性*/\r\n      //创建第一列id\r\n      var idCell=document.createElement('td');\r\n      //向id填充数据\r\n      idCell.innerText=h.id;\r\n      //加入行\r\n      row.appendChild(idCell);\r\n      /*创建第二列属性name 和上面类似*/\r\n      var nameCell=document.createElement('td');\r\n      nameCell.innerText=h.name;\r\n      row.appendChild(nameCell);\r\n      /*创建第三列属性job 和上面类似*/\r\n      var jobCell=document.createElement('td');\r\n      jobCell.innerText=h.job;\r\n      row.appendChild(jobCell);\r\n      //到这里，json中的数据已经添加到表格里面了，下面为每行末尾添加删除按钮\r\n      /*创建第四列属性 删除属性*/\r\n      var deleteCell=document.createElement('td');\r\n      //加入行\r\n      row.appendChild(deleteCell);\r\n      //创建一个删除按钮控件\r\n      var buttonCell=document.createElement('input');\r\n      //setAttribute()方法创建或改变某个新属性，如果指定属性已存在，则只设置该值\r\n      buttonCell.setAttribute('type','button');\r\n      buttonCell.setAttribute('value','删除');\r\n      //删除功能\r\n      buttonCell.onclick=function () {\r\n        if(confirm(\"确定删除这一行吗？\")){\r\n          //找到按钮所在的行之后进行删除 parentNode节点查找\r\n          this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);\r\n        }\r\n      }\r\n      //吧删除按钮控件加入第四列属性 删除属性\r\n      deleteCell.appendChild(buttonCell);\r\n      //返回行的数据\r\n      return row;\r\n    }\r\n</script>\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- HTML_CSS_JS/HTML/JS动态删除表格.html	(revision 3cfeef6f89e977de56a916e0ce7eb5f0ca8ca298)
++++ HTML_CSS_JS/HTML/JS动态删除表格.html	(date 1613983301399)
+@@ -1,6 +1,3 @@
+-
+-
+-
+ <!DOCTYPE html>
+ <html lang="zh-hans">
+ <head>
+Index: basic_method/lambda函数.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#! /usr/bin/env python\r\n# -*- coding:utf-8 -*-\r\n# __author__ = \"Liu Jin Yao\"\r\n\"\"\"本文探索lambda函数的使用\r\n匿名函数lambda：是指一类无需定义标识符（函数名）的函数或子程序。\r\nlambda 函数可以接收任意多个参数 (包括可选参数) 并且返回单个表达式的值。\r\n说明：一定非要使用lambda函数；任何能够使用它们的地方，都可以定义一个单独的普通函数来进行替换。我将它们用在需要封装特殊的、非重用代码上，避免令我的代码充斥着大量单行函数。\r\n\"\"\"\r\n\r\na = lambda x,y,z:x*2+y+z\r\nprint(a(5,6,7))\r\n\r\nlist1 = [1,4,5,6,8]\r\n\r\nprint(list(map(lambda x:x*2,list1)))\r\n\r\n#匿名函数返回None\r\nb = lambda x: print(x)\r\nb(12)\r\nprint(b(12))   # >> print() 返回None
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- basic_method/lambda函数.py	(revision 3cfeef6f89e977de56a916e0ce7eb5f0ca8ca298)
++++ basic_method/lambda函数.py	(date 1612486391162)
+@@ -17,4 +17,8 @@
+ #匿名函数返回None
+ b = lambda x: print(x)
+ b(12)
+-print(b(12))   # >> print() 返回None
+\ No newline at end of file
++print(b(12))   # >> print() 返回None
++
++
++str ='1234564'
++print(str[0:2])
+\ No newline at end of file
+Index: basic_method/随机函数.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#! /usr/bin/python3\r\n# -*- coding: utf-8 -*-\r\n# @Time : 2020/12/27 7:32 下午\r\n# @Author :\"Liu Jin Yao\"\r\n# @Email : 592203122@qq.com\r\n# @File : 随机函数.py\r\n\r\nimport random\r\nimport string\r\n# 随机整数\r\nprint(random.randint(1,100))\r\nprint(random.randrange(0,100,2))\r\n# 随机字符--返回对象\r\nprint(random.choice([\"1\",\"23\",\"dk\",\"ij\"]))\r\n# 随机字符--返回列表对象\r\nprint(random.choices([\"1\",\"23\",\"dk\",\"ij\"]))\r\n# 固定长度的a-zA-Z0-9的字符组合\r\nprint(''.join(random.sample(string.ascii_letters+string.digits,5)))\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- basic_method/随机函数.py	(revision 3cfeef6f89e977de56a916e0ce7eb5f0ca8ca298)
++++ basic_method/随机函数.py	(date 1614841557624)
+@@ -17,3 +17,4 @@
+ # 固定长度的a-zA-Z0-9的字符组合
+ print(''.join(random.sample(string.ascii_letters+string.digits,5)))
+ 
++
+Index: HTML_CSS_JS/HTML/css的三种引入方式及优先级.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!doctype html>\r\n<html lang=\"zh-CN\">\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"viewport\"\r\n          content=\"width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"ie=edge\">\r\n    <title>css引入的三种方法</title>\r\n        <!--\r\n    \t2.外部样式引入\r\n    \t-->\r\n\r\n\r\n    \r\n    <!--3.header标签内下style样式后引用\r\n    \t.name{}  >> class=\"name\"\r\n    \t#name{}  >> id=\"name\"\r\n    -->\r\n    <style>\r\n\t   .blue_div{\r\n\t\t\tbackground-color: blue; \r\n\t\t\twidth: 20px;\r\n\t\t\theight: 100px;\r\n\t    \t\t}\r\n\t    #green_div{\r\n\t\t\tbackground-color: green; \r\n\t\t\twidth: 100px;\r\n\t    }\r\n\t    div{\r\n\t    \tbackground-color: pink; \r\n\t\t\twidth: 100px;\r\n\t    }\r\n    </style>\r\n    \r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"../CSS/some.css\" />\r\n \r\n    \r\n</head>\r\n<body>\r\n\t<!--1.目标标签内写style属性及值-->\r\n\t<div style=\"background-color: red; width: 100px;\">红色div</div>\r\n\t<br />\r\n\t\r\n\t<!--2.外部样式：引入css文件-->\r\n\t<br />\r\n\t<div class=\"black_div\">黑色div</div>\r\n\t\r\n\t<!--3.内部样式：header标签内下style样式后引用-->\r\n\t<br />\r\n\t<div class=\"blue_div\">蓝色div</div>\r\n\t<br />\r\n\t<div id=\"green_div\">绿色div</div>\r\n\t<br />\r\n\t<div>粉色div</div>\r\n\t\r\n\t<!--\r\n\t\tcss中的优先级\r\n\t\t1.重复样式的就近原则  >> 一般是行内 > 内部 > 外部 \r\n\t\t2.选择器的优先级 >> ID选择器 > 类选择器 > 标签选择器\r\n\t\t3.行级样式优先级 高于所有的选择器\r\n\t-->\r\n\t\r\n\t<!--1.就近原则  >> 一般是行内 > 内部 > 外部 -->\r\n\t<br />\r\n\t<!--命中行内+内部，重复时，优先行内-->\r\n\t<div style=\"background-color: red; width: 100px;\">红色div</div> \r\n\t<!--2.选择器的优先级, ID选择器 > 类选择器 > 标签选择器-->\r\n\t<br />\r\n\t<div id=\"green_div\" class=\"blue_div black_div\">你猜我是什么颜色</div>\r\n\t<div style=\"background-color: yellow;\" class=\"blue_div black_div\">你猜我是什么颜色</div>\r\n\t\r\n</body>\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- HTML_CSS_JS/HTML/css的三种引入方式及优先级.html	(revision 3cfeef6f89e977de56a916e0ce7eb5f0ca8ca298)
++++ HTML_CSS_JS/HTML/css的三种引入方式及优先级.html	(date 1613962440850)
+@@ -30,6 +30,10 @@
+ 	    	background-color: pink; 
+ 			width: 100px;
+ 	    }
++	    /* !important 指该css具有最高优先级 */
++	    p{
++	    	color:red !important;
++	    	}
+     </style>
+     
+     <link rel="stylesheet" type="text/css" href="../CSS/some.css" />
+@@ -68,6 +72,7 @@
+ 	<br />
+ 	<div id="green_div" class="blue_div black_div">你猜我是什么颜色</div>
+ 	<div style="background-color: yellow;" class="blue_div black_div">你猜我是什么颜色</div>
++	<p style="color:blue;">注意特殊的 css !important 最高优先级的作用 导致行内的style无效</p>
+ 	
+ </body>
+ </html>
+\ No newline at end of file
+Index: HTML_CSS_JS/HTML/cry.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- HTML_CSS_JS/HTML/cry.html	(date 1615183874586)
++++ HTML_CSS_JS/HTML/cry.html	(date 1615183874586)
+@@ -0,0 +1,30 @@
++<!DOCTYPE html>
++<html lang="zh">
++<head>
++    <meta charset="UTF-8">
++    <title>Title</title>
++    <style>
++    .button_daohang{
++        width: 4%;
++        line-height: 30px;
++        text-align: center;
++        font-weight: bold;
++        color: #fff;
++        text-shadow: 1px 1px 1px #333;
++        border-radius: 5px;
++        margin: 0 1px 20px 0;
++        position: relative;
++        overflow: hidden;
++}
++
++    .button_daohang.blue{
++        border: 1px solid #1e7db9;
++        box-shadow: 0 3px 8px #8fcaee inset, 0 -1px 0 #497897 inset, 0 -2px 3px #8fcaee inset;
++        background: -webkit-linear-gradient(top,#7cb8dd,#2d9ae7);
++}
++    </style>
++</head>
++<body>
++<button type="button" class="button_daohang blue">返回首页</button>
++</body>
++</html>
+\ No newline at end of file
+Index: HTML_CSS_JS/HTML/droppabletest.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- HTML_CSS_JS/HTML/droppabletest.html	(date 1611817454340)
++++ HTML_CSS_JS/HTML/droppabletest.html	(date 1611817454340)
+@@ -0,0 +1,47 @@
++<!doctype html>
++<html lang="en">
++<head>
++  <meta charset="utf-8">
++  <title>jQuery UI 放置（Droppable） - 默认功能</title>
++  <link rel="stylesheet" href="https://apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
++  <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
++  <script src="https://apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
++  <link rel="stylesheet" href="https://www.runoob.com/try/demo_source/jqueryui/style.css">
++  <style>
++  span{ width: 100px; height: 100px; padding: 0.5em;margin: 10px 10px 10px 0; }
++  .droppable { width: 150px; height: 150px; padding: 0.5em; margin: 10px;}
++  </style>
++</head>
++<body>
++<a href=""></a>
++<!-- <div id="red" class="ui-widget-content">
++  <p>请把我拖拽到目标处！</p>
++</div> -->
++<div>
++<span id ='red'> 红色</span>
++<span id ='blue'>蓝色</span>
++</div>
++
++ 
++<div class="droppable" id="div1">11111</div>
++<div class="droppable" id=div2>21111</div>
++
++
++ 
++ 
++<script>
++  $(function() {
++    $( "span" ).draggable({ revert: "valid" });
++    $( "#div1,#div2" ).droppable({
++      drop: function( event, ui ) {
++        var co = ui.helper.context.id;
++        console.log(event);
++        console.log(ui.helper.context.id);
++        $(this).css('color',co);
++      }
++    });
++  });
++  </script>
++
++</body>
++</html>
+\ No newline at end of file
+Index: HTML_CSS_JS/HTML/按钮_css样式.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- HTML_CSS_JS/HTML/按钮_css样式.html	(date 1615174823299)
++++ HTML_CSS_JS/HTML/按钮_css样式.html	(date 1615174823299)
+@@ -0,0 +1,685 @@
++<!DOCTYPE HTML>
++<html lang="zh">
++<head>
++<meta charset="UTF-8">
++<title>36种漂亮的CSS3网页按钮Button样式</title>
++<style type="text/css">
++body{
++background: #f5faff;
++}
++.demo_con{
++width: 960px;
++margin:40px auto 0;
++}
++.button{
++width: 140px;
++line-height: 38px;
++text-align: center;
++font-weight: bold;
++color: #fff;
++text-shadow:1px 1px 1px #333;
++border-radius: 5px;
++margin:0 20px 20px 0;
++position: relative;
++overflow: hidden;
++}
++.button:nth-child(6n){
++margin-right: 0;
++}
++.button.gray{
++color: #8c96a0;
++text-shadow:1px 1px 1px #fff;
++border:1px solid #dce1e6;
++box-shadow: 0 1px 2px #fff inset,0 -1px 0 #a8abae inset;
++background: -webkit-linear-gradient(top,#f2f3f7,#e4e8ec);
++background: -moz-linear-gradient(top,#f2f3f7,#e4e8ec);
++background: linear-gradient(top,#f2f3f7,#e4e8ec);
++}
++.button.black{
++border:1px solid #333;
++box-shadow: 0 1px 2px #8b8b8b inset,0 -1px 0 #3d3d3d inset,0 -2px 3px #8b8b8b inset;
++background: -webkit-linear-gradient(top,#656565,#4c4c4c);
++background: -moz-linear-gradient(top,#656565,#4a4a4a);
++background: linear-gradient(top,#656565,#4a4a4a);
++}
++.button.red{
++border:1px solid #b42323;
++box-shadow: 0 1px 2px #e99494 inset,0 -1px 0 #954b4b inset,0 -2px 3px #e99494 inset;
++background: -webkit-linear-gradient(top,#d53939,#b92929);
++background: -moz-linear-gradient(top,#d53939,#b92929);
++background: linear-gradient(top,#d53939,#b92929);
++}
++.button.yellow{
++border:1px solid #d2a000;
++box-shadow: 0 1px 2px #fedd71 inset,0 -1px 0 #a38b39 inset,0 -2px 3px #fedd71 inset;
++background: -webkit-linear-gradient(top,#fece34,#d8a605);
++background: -moz-linear-gradient(top,#fece34,#d8a605);
++background: linear-gradient(top,#fece34,#d8a605);
++}
++.button.green{
++border:1px solid #64c878;
++box-shadow: 0 1px 2px #b9ecc4 inset,0 -1px 0 #6c9f76 inset,0 -2px 3px #b9ecc4 inset;
++background: -webkit-linear-gradient(top,#90dfa2,#84d494);
++background: -moz-linear-gradient(top,#90dfa2,#84d494);
++background: linear-gradient(top,#90dfa2,#84d494);
++}
++.button.blue{
++border:1px solid #1e7db9;
++box-shadow: 0 1px 2px #8fcaee inset,0 -1px 0 #497897 inset,0 -2px 3px #8fcaee inset;
++background: -webkit-linear-gradient(top,#42a4e0,#2e88c0);
++background: -moz-linear-gradient(top,#42a4e0,#2e88c0);
++background: linear-gradient(top,#42a4e0,#2e88c0);
++}
++.round,
++	.side,
++	.tags{
++padding-right: 30px;
++}
++.round:after{
++position: absolute;
++display: inline-block;
++content: "\003c";
++top:50%;
++right:10px;
++margin-top: -10px;
++width: 17px;
++height: 20px;
++padding-left: 3px;
++line-height:18px;
++font-size: 10px;
++font-weight: normal;
++border-radius: 10px;
++text-shadow:-2px 0 1px #333;
++-webkit-transform:rotate(-90deg);
++-moz-transform:rotate(-90deg);
++transform:rotate(-90deg);
++}
++.gray.round:after{
++box-shadow:1px 0 1px rgba(255,255,255,1) inset,1px 0 1px rgba(0,0,0,.2);
++background:-webkit-linear-gradient(top,#dce1e6,#dde2e7);
++background:-moz-linear-gradient(top,#dce1e6,#dde2e7);
++background:linear-gradient(top,#dce1e6,#dde2e7);
++text-shadow:-2px 0 1px #fff;
++}
++.black.round:after{
++box-shadow:1px 0 1px rgba(255,255,255,.5) inset,1px 0 1px rgba(0,0,0,.9);
++background:-webkit-linear-gradient(top,#333,#454545);
++background:-moz-linear-gradient(top,#333,#454545);
++background:linear-gradient(top,#333,#454545);
++}
++.red.round:after{
++box-shadow:1px 0 1px rgba(255,255,255,.6) inset,1px 0 1px rgba(130,25,25,.9);
++background:-webkit-linear-gradient(top,#b12222,#b42323);
++background:-moz-linear-gradient(top,#b12222,#b42323);
++background:linear-gradient(top,#b12222,#b42323);
++}
++.yellow.round:after{
++box-shadow:1px 0 1px rgba(255,255,255,.8) inset,1px 0 1px rgba(148,131,4,.9);
++background:-webkit-linear-gradient(top,#cf9d00,#d2a000);
++background:-moz-linear-gradient(top,#cf9d00,#d2a000);
++background:linear-gradient(top,#cf9d00,#d2a000);
++}
++.green.round:after{
++box-shadow:1px 0 1px rgba(255,255,255,.8) inset,1px 0 1px rgba(51,126,66,.9);
++background:-webkit-linear-gradient(top,#64c878,#6dcb80);
++background:-moz-linear-gradient(top,#64c878,#6dcb80);
++background:linear-gradient(top,#64c878,#6dcb80);
++}
++.blue.round:after{
++box-shadow:1px 0 1px rgba(255,255,255,.8) inset,1px 0 1px rgba(18,85,128,.9);
++background:-webkit-linear-gradient(top,#1e7db9,#2b85bd);
++background:-moz-linear-gradient(top,#1e7db9,#2b85bd);
++background:linear-gradient(top,#1e7db9,#2b85bd);
++}
++.side:after{
++position: absolute;
++display: inline-block;
++content: "\00bb";
++top:3px;
++right:-4px;
++width: 38px;
++height:30px;
++font-weight: normal;
++line-height: 26px;
++border-radius:0 0 5px 5px;
++text-shadow:-2px 0 1px #333;
++-webkit-transform:rotate(-90deg);
++-moz-transform:rotate(-90deg);
++transform:rotate(-90deg);
++}
++.gray.side:after{
++text-shadow:-2px 0 1px #fff;
++border-top: 1px solid #d4d4d4;
++box-shadow:-2px 0 1px #eceef1 inset;
++background:-webkit-linear-gradient(right,#e1e6ea,#f2f2f6 60%);
++background:-moz-linear-gradient(right,#e1e6ea,#f2f2f6 60%);
++background:linear-gradient(right,#e1e6ea,#f2f2f6 60%);
++}
++.black.side:after{
++border-top: 1px solid #222;
++box-shadow:-2px 0 1px #606060 inset;
++background:-webkit-linear-gradient(right,#373737,#555 60%);
++background:-moz-linear-gradient(right,#373737,#555 60%);
++background:linear-gradient(right,#373737,#555 60%);
++}
++.red.side:after{
++border-top: 1px solid #aa1e1e;
++box-shadow:-2px 0 1px #c75959 inset;
++background:-webkit-linear-gradient(right,#b82929,#d73f3f 60%);
++background:-moz-linear-gradient(top,#b82929,#d73f3f 60%);
++background:linear-gradient(top,#b82929,#d73f3f 60%);
++}
++.yellow.side:after{
++border-top: 1px solid #ba8f06;
++box-shadow:-2px 0 1px #deb842 inset;
++background:-webkit-linear-gradient(right,#d5a406,#fdc40b 60%);
++background:-moz-linear-gradient(right,#d5a406,#fdc40b 60%);
++background:linear-gradient(right,#d5a406,#fdc40b 60%);
++}
++.green.side:after{
++border-top: 1px solid #53b567;
++box-shadow:-2px 0 1px #8ad599 inset;
++background:-webkit-linear-gradient(right,#69ca7c,#91e5a5 60%);
++background:-moz-linear-gradient(right,#69ca7c,#91e5a5 60%);
++background:linear-gradient(right,#69ca7c,#91e5a5 60%);
++}
++.blue.side:after{
++border-top: 1px solid #1971a8;
++box-shadow:-2px 0 1px #559dca inset;
++background:-webkit-linear-gradient(right,#2482bd,#3fa2e0 60%);
++background:-moz-linear-gradient(right,#2482bd,#3fa2e0 60%);
++background:linear-gradient(right,#2482bd,#3fa2e0 60%);
++}
++.tags:after{
++font-weight: normal;
++position: absolute;
++display: inline-block;
++content: "FREE";
++top:-3px;
++right: -33px;
++color: #fff;
++text-shadow:none;
++width: 85px;
++height:25px;
++line-height: 28px;
++-webkit-transform:rotate(45deg) scale(.7,.7);
++-moz-transform:rotate(45deg) scale(.7,.7);
++transform:rotate(45deg) scale(.7,.7);
++}
++.gray.tags:after{
++background: #8c96a0;
++border:2px solid #fff;
++}
++.black.tags:after{
++background: #333;
++border:2px solid #777;
++}
++.red.tags:after{
++background: #b42323;
++border:2px solid #df4141;
++}
++.yellow.tags:after{
++background: #d2a000;
++border:2px solid #fcc100;
++}
++.green.tags:after{
++background: #64c878;
++border:2px solid #9bebac;
++}
++.blue.tags:after{
++background: #1e7db9;
++border:2px solid #54b1e9;
++}
++.button.rarrow,
++	.button.larrow{
++overflow:visible;
++}
++.rarrow:after,
++	.rarrow:before,
++	.larrow:after,
++	.larrow:before{
++position:absolute;
++content: "";
++display: block;
++width: 28px;
++height: 28px;
++-webkit-transform:rotate(45deg);
++-moz-transform:rotate(45deg);
++transform:rotate(45deg);
++}
++.rarrow:before{
++width: 27px;
++height: 27px;
++top: 6px;
++right: -13px;
++clip: rect(auto auto 26px 2px);
++}
++.rarrow:after{
++top: 6px;
++right: -12px;
++clip: rect(auto auto 26px 2px);
++}
++.gray.rarrow:before{
++background: #d6dbe0;
++}
++.gray.rarrow:after{
++box-shadow: 0 1px 0 #fff inset,-1px 0 0 #b7babd inset;
++background:-webkit-linear-gradient(top left,#f2f3f7,#e4e8ec);
++background:-moz-linear-gradient(top left,#f2f3f7,#e4e8ec);
++background:linear-gradient(top left,#f2f3f7,#e4e8ec);
++}
++.black.rarrow:before{
++background: #333;
++}
++.black.rarrow:after{
++box-shadow: 0 1px 0 #8B8B8B inset,-1px 0 0 #3d3d3d inset,-2px 0 0 #8B8B8B inset;
++background:-webkit-linear-gradient(top left,#656565,#4C4C4C);
++background:-moz-linear-gradient(top left,#656565,#4C4C4C);
++background:linear-gradient(top left,#656565,#4C4C4C);
++}
++.red.rarrow:before{
++background: #B42323;
++}
++.red.rarrow:after{
++box-shadow: 0 1px 0 #E99494 inset,-1px 0 0 #954B4B inset,-2px 0 0 #E99494 inset;
++background:-webkit-linear-gradient(top left,#D53939,#B92929);
++background:-moz-linear-gradient(top left,#D53939,#B92929);
++background:linear-gradient(top left,#D53939,#B92929);
++}
++.yellow.rarrow:before{
++background: #D2A000;
++}
++.yellow.rarrow:after{
++box-shadow: 0 1px 0 #FEDD71 inset,-1px 0 0 #A38B39 inset,-2px 0 0 #FEDD71 inset;
++background:-webkit-linear-gradient(top left,#FECE34,#D8A605);
++background:-moz-linear-gradient(top left,#FECE34,#D8A605);
++background:linear-gradient(top left,#FECE34,#D8A605);
++}
++.green.rarrow:before{
++background: #64C878;
++}
++.green.rarrow:after{
++box-shadow: 0 1px 0 #B9ECC4 inset,-1px 0 0 #6C9F76 inset,-2px 0 0 #B9ECC4 inset;
++background:-webkit-linear-gradient(top left,#90DFA2,#84D494);
++background:-moz-linear-gradient(top left,#90DFA2,#84D494);
++background:linear-gradient(top left,#90DFA2,#84D494);
++}
++.blue.rarrow:before{
++background: #1E7DB9;
++}
++.blue.rarrow:after{
++box-shadow: 0 1px 0 #8FCAEE inset,-1px 0 0 #497897 inset,-2px 0 0 #8FCAEE inset;
++background:-webkit-linear-gradient(top left,#42A4E0,#2E88C0);
++background:-moz-linear-gradient(top left,#42A4E0,#2E88C0);
++background:linear-gradient(top left,#42A4E0,#2E88C0);
++}
++.larrow:before{
++top: 6px;
++left: -13px;
++width: 27px;
++height: 27px;
++clip: rect(2px 26px auto auto);
++}
++.larrow:after{
++top: 6px;
++left: -12px;
++clip: rect(2px 26px auto auto);
++}
++.gray.larrow:before{
++background: #d6dbe0;
++}
++.gray.larrow:after{
++box-shadow: 0 -1px 0 #b7babd inset,1px 0 0 #fff inset;
++background:-webkit-linear-gradient(top left,#f2f3f7,#e4e8ec);
++background:-moz-linear-gradient(top left,#f2f3f7,#e4e8ec);
++background:linear-gradient(top left,#f2f3f7,#e4e8ec);
++}
++.black.larrow:before{
++background: #333;
++}
++.black.larrow:after{
++box-shadow: 0 -1px 0 #3d3d3d inset,0 -2px 0 #8B8B8B inset,1px 0 0 #8B8B8B inset;
++background:-webkit-linear-gradient(top left,#656565,#4C4C4C);
++background:-moz-linear-gradient(top left,#656565,#4C4C4C);
++background:linear-gradient(top left,#656565,#4C4C4C);
++}
++.red.larrow:before{
++background: #B42323;
++}
++.red.larrow:after{
++box-shadow: 0 -1px 0 #954B4B inset,0 -2px 0 #E99494 inset,1px 0 0 #E99494 inset;
++background:-webkit-linear-gradient(top left,#D53939,#B92929);
++background:-moz-linear-gradient(top left,#D53939,#B92929);
++background:linear-gradient(top left,#D53939,#B92929);
++}
++.yellow.larrow:before{
++background: #D2A000;
++}
++.yellow.larrow:after{
++box-shadow: 0 -1px 0 #A38B39 inset,0 -2px 0 #FEDD71 inset,1px 0 0 #FEDD71 inset;
++background:-webkit-linear-gradient(top left,#FECE34,#D8A605);
++background:-moz-linear-gradient(top left,#FECE34,#D8A605);
++background:linear-gradient(top left,#FECE34,#D8A605);
++}
++.green.larrow:before{
++background: #64C878;
++}
++.green.larrow:after{
++box-shadow: 0 -1px 0 #6C9F76 inset,0 -2px 0 #B9ECC4 inset,1px 0 0 #B9ECC4 inset;
++background:-webkit-linear-gradient(top left,#90DFA2,#84D494);
++background:-moz-linear-gradient(top left,#90DFA2,#84D494);
++background:linear-gradient(top left,#90DFA2,#84D494);
++}
++.blue.larrow:before{
++background: #1E7DB9;
++}
++.blue.larrow:after{
++box-shadow: 0 -1px 0 #497897 inset,0 -2px 0 #8FCAEE inset,1px 0 0 #8FCAEE inset;
++background:-webkit-linear-gradient(top left,#42A4E0,#2E88C0);
++background:-moz-linear-gradient(top left,#42A4E0,#2E88C0);
++background:linear-gradient(top left,#42A4E0,#2E88C0);
++}
++.gray:hover{
++background: -webkit-linear-gradient(top,#fefefe,#ebeced);
++background: -moz-linear-gradient(top,#f2f3f7,#ebeced);
++background: linear-gradient(top,#f2f3f7,#ebeced);
++}
++.black:hover{
++background: -webkit-linear-gradient(top,#818181,#575757);
++background: -moz-linear-gradient(top,#818181,#575757);
++background: linear-gradient(top,#818181,#575757);
++}
++.red:hover{
++background: -webkit-linear-gradient(top,#eb6f6f,#c83c3c);
++background: -moz-linear-gradient(top,#eb6f6f,#c83c3c);
++background: linear-gradient(top,#eb6f6f,#c83c3c);
++}
++.yellow:hover{
++background: -webkit-linear-gradient(top,#ffd859,#e3bb38);
++background: -moz-linear-gradient(top,#ffd859,#e3bb38);
++background: linear-gradient(top,#ffd859,#e3bb38);
++}
++.green:hover{
++background: -webkit-linear-gradient(top,#aaebb9,#82d392);
++background: -moz-linear-gradient(top,#aaebb9,#82d392);
++background: linear-gradient(top,#aaebb9,#82d392);
++}
++.blue:hover{
++background: -webkit-linear-gradient(top,#70bfef,#4097ce);
++background: -moz-linear-gradient(top,#70bfef,#4097ce);
++background: linear-gradient(top,#70bfef,#4097ce);
++}
++.gray:active{
++top:1px;
++box-shadow: 0 1px 3px #a8abae inset,0 3px 0 #fff;
++background: -webkit-linear-gradient(top,#e4e8ec,#e4e8ec);
++background: -moz-linear-gradient(top,#e4e8ec,#e4e8ec);
++background: linear-gradient(top,#e4e8ec,#e4e8ec);
++}
++.black:active{
++top:1px;
++box-shadow: 0 1px 3px #111 inset,0 3px 0 #fff;
++background: -webkit-linear-gradient(top,#424242,#575757);
++background: -moz-linear-gradient(top,#424242,#575757);
++background: linear-gradient(top,#424242,#575757);
++}
++.red:active{
++top:1px;
++box-shadow: 0 1px 3px #5b0505 inset,0 3px 0 #fff;
++background: -webkit-linear-gradient(top,#b11a1a,#bf2626);
++background: -moz-linear-gradient(top,#b11a1a,#bf2626);
++background: linear-gradient(top,#b11a1a,#bf2626);
++}
++.yellow:active{
++top:1px;
++box-shadow: 0 1px 3px #816b1f inset,0 3px 0 #fff;
++background: -webkit-linear-gradient(top,#d3a203,#dba907);
++background: -moz-linear-gradient(top,#d3a203,#dba907);
++background: linear-gradient(top,#d3a203,#dba907);
++}
++.green:active{
++top:1px;
++box-shadow: 0 1px 3px #4d7254 inset,0 3px 0 #fff;
++background: -webkit-linear-gradient(top,#5eac6e,#72b37e);
++background: -moz-linear-gradient(top,#5eac6e,#72b37e);
++background: linear-gradient(top,#5eac6e,#72b37e);
++}
++.blue:active{
++top:1px;
++box-shadow: 0 1px 3px #114566 inset,0 3px 0 #fff;
++background: -webkit-linear-gradient(top,#1a71a8,#1976b1);
++background: -moz-linear-gradient(top,#1a71a8,#1976b1);
++background: linear-gradient(top,#1a71a8,#1976b1);
++}
++.gray.side:hover:after{
++background:-webkit-linear-gradient(right,#e7ebee,#f8f8f8 60%);
++background:-moz-linear-gradient(right,#e7ebee,#f8f8f8 60%);
++background:linear-gradient(right,#e7ebee,#f8f8f8 60%);
++}
++.black.side:hover:after{
++background:-webkit-linear-gradient(right,#555,#6f6f6f 60%);
++background:-moz-linear-gradient(right,#555,#6f6f6f 60%);
++background:linear-gradient(right,#555,#6f6f6f 60%);
++}
++.red.side:hover:after{
++background:-webkit-linear-gradient(right,#c43333,#dc4949 60%);
++background:-moz-linear-gradient(right,#c43333,#dc4949 60%);
++background:linear-gradient(right,#c43333,#dc4949 60%);
++}
++.yellow.side:hover:after{
++background:-webkit-linear-gradient(right,#e1b21a,#fbc71d 60%);
++background:-moz-linear-gradient(right,#e1b21a,#fbc71d 60%);
++background:linear-gradient(right,#e1b21a,#fbc71d 60%);
++}
++.green.side:hover:after{
++background:-webkit-linear-gradient(right,#85da95,#94e0a5 60%);
++background:-moz-linear-gradient(right,#85da95,#94e0a5 60%);
++background:linear-gradient(right,#85da95,#94e0a5 60%);
++}
++.blue.side:hover:after{
++background:-webkit-linear-gradient(right,#338fc8,#56b2eb 60%);
++background:-moz-linear-gradient(right,#338fc8,#56b2eb 60%);
++background:linear-gradient(right,#338fc8,#56b2eb 60%);
++}
++.gray.side:active:after{
++top:4px;
++border-top: 1px solid #9fa6ab;
++box-shadow:-1px 0 1px #a8abae inset;
++background:-webkit-linear-gradient(right,#e4e8ec,#e4e8ec 60%);
++background:-moz-linear-gradient(right,#e4e8ec,#e4e8ec 60%);
++background:linear-gradient(right,#e4e8ec,#e4e8ec 60%);
++}
++.black.side:active:after{
++box-shadow:-1px 0 1px #111 inset;
++background:-webkit-linear-gradient(right,#414040,#4d4c4c 60%);
++background:-moz-linear-gradient(right,#414040,#4d4c4c 60%);
++background:linear-gradient(right,#414040,#4d4c4c 60%);
++}
++.red.side:active:after{
++box-shadow:-1px 0 1px #4b0707 inset;
++background:-webkit-linear-gradient(right,#b11a1a,#b11a1a 60%);
++background:-moz-linear-gradient(right,#b11a1a,#b11a1a 60%);
++background:linear-gradient(right,#b11a1a,#b11a1a 60%);
++}
++.yellow.side:active:after{
++box-shadow:-1px 0 1px #816b1f inset;
++background:-webkit-linear-gradient(right,#d3a203,#dba907 60%);
++background:-moz-linear-gradient(right,#d3a203,#dba907 60%);
++background:linear-gradient(right,#d3a203,#dba907 60%);
++}
++.green.side:active:after{
++box-shadow:-1px 0 1px #33663d inset;
++background:-webkit-linear-gradient(right,#63a870,#72b37e 60%);
++background:-moz-linear-gradient(right,#63a870,#72b37e 60%);
++background:linear-gradient(right,#63a870,#72b37e 60%);
++}
++.blue.side:active:after{
++box-shadow:-1px 0 1px #114566 inset;
++background:-webkit-linear-gradient(right,#1a71a8,#1976b1 60%);
++background:-moz-linear-gradient(right,#1a71a8,#1976b1 60%);
++background:linear-gradient(right,#1a71a8,#1976b1 60%);
++}
++.gray.rarrow:hover:after,
++	.gray.rarrow:hover:after{
++background:-webkit-linear-gradient(top left,#fefefe,#ebeced);
++background:-moz-linear-gradient(top left,#fefefe,#ebeced);
++background:linear-gradient(top left,#fefefe,#ebeced);
++}
++.black.rarrow:hover:after,
++	.black.larrow:hover:after{
++background:-webkit-linear-gradient(top left,#818181,#575757);
++background:-moz-linear-gradient(top left,#818181,#575757);
++background:linear-gradient(top left,#818181,#575757);
++}
++.red.rarrow:hover:after,
++	.red.larrow:hover:after{
++background:-webkit-linear-gradient(top left,#eb6f6f,#c83c3c);
++background:-moz-linear-gradient(top left,#eb6f6f,#c83c3c);
++background:linear-gradient(top left,#eb6f6f,#c83c3c);
++}
++.yellow.rarrow:hover:after,
++	.yellow.larrow:hover:after{
++background:-webkit-linear-gradient(top left,#ffd859,#e3bb38);
++background:-moz-linear-gradient(top left,#ffd859,#e3bb38);
++background:linear-gradient(top left,#ffd859,#e3bb38);
++}
++.green.rarrow:hover:after,
++	.green.larrow:hover:after{
++background:-webkit-linear-gradient(top left,#aaebb9,#82d392);
++background:-moz-linear-gradient(top left,#aaebb9,#82d392);
++background:linear-gradient(top left,#aaebb9,#82d392);
++}
++.blue.rarrow:hover:after,
++	.blue.larrow:hover:after{
++background:-webkit-linear-gradient(top left,#70bfef,#4097ce);
++background:-moz-linear-gradient(top left,#70bfef,#4097ce);
++background:linear-gradient(top left,#70bfef,#4097ce);
++}
++.gray.rarrow:active:after,
++	.gray.larrow:active:after{
++background:-webkit-linear-gradient(top left,#e4e8ec,#e4e8ec);
++background:-moz-linear-gradient(top left,#e4e8ec,#e4e8ec);
++background:linear-gradient(top left,#e4e8ec,#e4e8ec);
++}
++.black.rarrow:active:after,
++	.black.larrow:active:after{
++background:-webkit-linear-gradient(top left,#424242,#575757);
++background:-moz-linear-gradient(top left,#424242,#575757);
++background:linear-gradient(top left,#424242,#575757);
++}
++.red.rarrow:active:after,
++	.red.larrow:active:after{
++background:-webkit-linear-gradient(top left,#b11a1a,#bf2626);
++background:-moz-linear-gradient(top left,#b11a1a,#bf2626);
++background:linear-gradient(top left,#b11a1a,#bf2626);
++}
++.yellow.rarrow:active:after,
++	.yellow.larrow:active:after{
++background:-webkit-linear-gradient(top left,#d3a203,#dba907);
++background:-moz-linear-gradient(top left,#d3a203,#dba907);
++background:linear-gradient(top left,#d3a203,#dba907);
++}
++.green.rarrow:active:after,
++	.green.larrow:active:after{
++background:-webkit-linear-gradient(top left,#63a870,#72b37e);
++background:-moz-linear-gradient(top left,#63a870,#72b37e);
++background:linear-gradient(top left,#63a870,#72b37e);
++}
++.blue.rarrow:active:after,
++	.blue.larrow:active:after{
++background:-webkit-linear-gradient(top left,#1a71a8,#1976b1);
++background:-moz-linear-gradient(top left,#1a71a8,#1976b1);
++background:linear-gradient(top left,#1a71a8,#1976b1);
++}
++.gray.rarrow:active:after{
++box-shadow: 0 1px 0 #b7babd inset,-1px 0 0 #b7babd inset;
++}
++.gray.larrow:active:after{
++box-shadow: 0 -1px 0 #b7babd inset,1px 0 0 #b7babd inset;
++}
++.black.rarrow:active:after{
++box-shadow: 0 1px 0 #333 inset,-1px 0 0 #333 inset;
++}
++.black.larrow:active:after{
++box-shadow: 0 -1px 0 #333 inset,1px 0 0 #333 inset;
++}
++.red.rarrow:active:after{
++box-shadow: 0 1px 0 #640909 inset,-1px 0 0 #640909 inset;
++}
++.red.larrow:active:after{
++box-shadow: 0 -1px 0 #640909 inset,1px 0 0 #640909 inset;
++}
++.yellow.rarrow:active:after{
++box-shadow: 0 1px 0 #816b1f inset,-1px 0 0 #816b1f inset;
++}
++.yellow.larrow:active:after{
++box-shadow: 0 -1px 0 #816b1f inset,1px 0 0 #816b1f inset;
++}
++.green.rarrow:active:after{
++box-shadow: 0 1px 0 #4d7254 inset,-1px 0 0 #4d7254 inset;
++}
++.green.larrow:active:after{
++box-shadow: 0 -1px 0 #4d7254 inset,1px 0 0 #4d7254 inset;
++}
++.blue.rarrow:active:after{
++box-shadow: 0 1px 0 #114566 inset,-1px 0 0 #114566 inset;
++}
++.blue.larrow:active:after{
++box-shadow: 0 -1px 0 #114566 inset,1px 0 0 #114566 inset;
++}
++	</style>
++</head>
++<body>
++<div class="page">
++	<header id="header">
++	<h1>作者  神秘人R</h1>
++	</header>
++	<section class="demo">
++<div class="demo_con">
++    <span class="button gray">123</span>
++	<button type="button" class="button gray">开启/关闭</button>
++	<button type="button" class="button black">BUY NOW</button>
++	<button type="button" class="button red">BUY NOW</button>
++	<button type="button" class="button yellow">BUY NOW</button>
++	<button type="button" class="button green">BUY NOW</button>
++	<button type="button" class="button blue">BUY NOW</button>
++
++	<button type="button" class="button gray round">DOWNLOAD</button>
++	<button type="button" class="button black round">DOWNLOAD</button>
++	<button type="button" class="button red round">DOWNLOAD</button>
++	<button type="button" class="button yellow round">DOWNLOAD</button>
++	<button type="button" class="button green round">DOWNLOAD</button>
++	<button type="button" class="button blue round">蓝色</button>
++
++	<button type="button" class="button gray side">DOWNLOAD</button>
++	<button type="button" class="button black side">下载</button>
++	<button type="button" class="button red side">DOWNLOAD</button>
++	<button type="button" class="button yellow side">DOWNLOAD</button>
++	<button type="button" class="button green side">下载</button>
++	<button type="button" class="button blue side">DOWNLOAD</button>
++
++	<button type="button" class="button gray tags">SIGN UP</button>
++	<button type="button" class="button black tags">SIGN UP</button>
++	<button type="button" class="button red tags">SIGN UP</button>
++	<button type="button" class="button yellow tags">SIGN UP</button>
++	<button type="button" class="button green tags">SIGN UP</button>
++	<button type="button" class="button blue tags">SIGN UP</button>
++
++	<button type="button" class="button gray rarrow">LEARN MORE</button>
++	<button type="button" class="button black rarrow">LEARN MORE</button>
++	<button type="button" class="button red rarrow">LEARN MORE</button>
++	<button type="button" class="button yellow rarrow">LEARN MORE</button>
++	<button type="button" class="button green rarrow">LEARN MORE</button>
++	<button type="button" class="button blue rarrow">LEARN MORE</button>
++
++	<button type="button" class="button gray larrow">GO BACK</button>
++	<button type="button" class="button black larrow">GO BACK</button>
++	<button type="button" class="button red larrow">GO BACK</button>
++	<button type="button" class="button yellow larrow">GO BACK</button>
++	<button type="button" class="button green larrow">GO BACK</button>
++	<button type="button" class="button blue larrow">GO BACK</button>
++</div>
++	</section>
++</div>
++</body>
++</html>
+Index: basic_method/eval函数和exec函数.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#! /usr/bin/env python\r\n# -*- coding:utf-8 -*-\r\n# __author__ = \"Liu Jin Yao\"\r\n\r\n\"\"\"\r\n本文探索eval()函数的用法\r\n核心理念是:eval函数入参是字符串，那么eval函数的作用是，将字符串前后的引号，双引号，多引号去掉，然后分析表达式，如发现它是可运算,就会执行运算（执行计算，返回，脚本语义等）；没有意义则会报错。\r\n\"\"\"\r\n\r\na = \"\"\"1*2\"\"\"\r\nprint(eval(a))\r\n\r\nb = '{\"k1\":\"v1\"}'\r\nprint(eval(b))\r\n\r\nc = 2\r\nd = 'c+2'\r\nprint(eval(d))\r\n\r\ndef add1(x):\r\n    return x+3\r\nprint(eval('add1(2)'))\r\nprint(add1(2))\r\n\r\n# eval的安全性问题，如果恶意输入可执行语言，就会被执行。\r\ns = 'print(\"is it safe??\")'\r\nb = eval(s)\r\n\r\n\r\n# python3 中的exec()函数 相比eval()函数，更全面，可以执行更复杂的代码。\r\n\r\n\r\nss= \"for i in range(5): print(i) \"\r\nexec(ss)\r\n\r\n# sss = \"while True: print(1)\"\r\n# exec(sss)\r\n\r\n\r\nfile = 'exec_debug.text'\r\nwith open(file,'r') as f:\r\n    exec(f.read())\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- basic_method/eval函数和exec函数.py	(revision 3cfeef6f89e977de56a916e0ce7eb5f0ca8ca298)
++++ basic_method/eval函数和exec函数.py	(date 1609201939576)
+@@ -36,7 +36,11 @@
+ # sss = "while True: print(1)"
+ # exec(sss)
+ 
++def getdoc(obj):
++    return obj.__doc__
+ 
+ file = 'exec_debug.text'
+ with open(file,'r') as f:
+     exec(f.read())
++    print(getdoc(Abc))
++    print(getdoc(Abc.abc))
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/vcs.xml	(date 1609115700038)
++++ .idea/vcs.xml	(date 1609115700038)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(date 1609115699843)
++++ .idea/misc.xml	(date 1609115699843)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.6" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: .idea/utils.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/utils.iml	(date 1609115699991)
++++ .idea/utils.iml	(date 1609115699991)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$" />
++    <orderEntry type="jdk" jdkName="Python 3.6" jdkType="Python SDK" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/.gitignore	(date 1609115700114)
++++ .idea/.gitignore	(date 1609115700114)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/modules.xml	(date 1609115700075)
++++ .idea/modules.xml	(date 1609115700075)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/utils.iml" filepath="$PROJECT_DIR$/.idea/utils.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/inspectionProfiles/profiles_settings.xml	(date 1609115699899)
++++ .idea/inspectionProfiles/profiles_settings.xml	(date 1609115699899)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
