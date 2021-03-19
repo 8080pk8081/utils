@@ -19,7 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="926ba7c3-16d5-410d-a17c-62d1adb7558c" name="Default Changelist" comment="更新方法" />
+    <list default="true" id="926ba7c3-16d5-410d-a17c-62d1adb7558c" name="Default Changelist" comment="更新">
+      <change afterPath="$PROJECT_DIR$/somethingtest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/utils.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/utils.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -47,26 +51,28 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Python_work/work_tools" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GitHub\utils\HTML_CSS_JS\HTML" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\GitHub\utils\basic_method\多线程编程" />
       <recent name="D:\GitHub\utils\common_Ways\python-linux" />
       <recent name="D:\GitHub\utils\common_Ways" />
       <recent name="D:\GitHub\utils\HTML_CSS_JS\HTML" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\GitHub\utils\HTML_CSS_JS\HTML" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.paramiko初探 (1)">
-    <configuration name="装饰器" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.多线程_控制线程数_semaphore">
+    <configuration name="多线程编程1 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="utils" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -74,11 +80,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/basic_method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/basic_method/多线程编程" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/basic_method/装饰器.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/basic_method/多线程编程/多线程编程1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -87,7 +93,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="any和all函数" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="多线程编程1" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="utils" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -99,8 +105,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/basic_method/any和all函数.py" />
+      <option name="SCRIPT_NAME" value="D:\GitHub\utils\basic_method\多线程编程\多线程编程1.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -109,7 +114,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="eval函数和exec函数 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="多线程_控制线程数_semaphore" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="utils" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -117,12 +122,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/basic_method" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/basic_method/多线程编程" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/basic_method/eval函数和exec函数.py" />
+      <option name="SCRIPT_NAME" value="D:\GitHub\utils\basic_method\多线程编程\多线程_控制线程数_semaphore.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,7 +156,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="paramiko初探" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="somethingtest" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="utils" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -160,11 +164,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/common_Ways" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\GitHub\utils\common_Ways\python-linux\paramiko初探.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/somethingtest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -175,11 +179,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.多线程_控制线程数_semaphore" />
+        <item itemvalue="Python.somethingtest" />
+        <item itemvalue="Python.多线程编程1 (1)" />
+        <item itemvalue="Python.多线程编程1" />
         <item itemvalue="Python.paramiko初探 (1)" />
-        <item itemvalue="Python.paramiko初探" />
-        <item itemvalue="Python.装饰器" />
-        <item itemvalue="Python.any和all函数" />
-        <item itemvalue="Python.eval函数和exec函数 (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -205,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605774870034</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="更新">
+      <created>1615289841597</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615289841597</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,29 +239,30 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="更新方法" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新方法" />
+    <MESSAGE value="更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="更新" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1615258101995">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1615272910880">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615258101995" />
-    <state width="1899" height="378" key="GridCell.Tab.0.bottom" timestamp="1615163959586">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615272910880" />
+    <state width="1899" height="294" key="GridCell.Tab.0.bottom" timestamp="1615290291815">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="378" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615163959586" />
-    <state width="1899" height="378" key="GridCell.Tab.0.center" timestamp="1615163959586">
+    <state width="1899" height="294" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615290291815" />
+    <state width="1899" height="294" key="GridCell.Tab.0.center" timestamp="1615290291814">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="378" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615163959586" />
-    <state width="1899" height="378" key="GridCell.Tab.0.left" timestamp="1615163959586">
+    <state width="1899" height="294" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615290291814" />
+    <state width="1899" height="294" key="GridCell.Tab.0.left" timestamp="1615290291813">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="378" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615163959586" />
-    <state width="1899" height="378" key="GridCell.Tab.0.right" timestamp="1615163959586">
+    <state width="1899" height="294" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615290291813" />
+    <state width="1899" height="294" key="GridCell.Tab.0.right" timestamp="1615290291815">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1899" height="378" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615163959586" />
+    <state width="1899" height="294" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615290291815" />
     <state width="1899" height="244" key="GridCell.Tab.1.bottom" timestamp="1614765763610">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -271,10 +283,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615258719207" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1615257350766">
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1615290266426">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615257350766" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1615290266426" />
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1615258037723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
