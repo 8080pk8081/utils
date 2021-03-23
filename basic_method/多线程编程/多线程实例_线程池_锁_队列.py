@@ -26,7 +26,7 @@ result = []
 def qq_put():
     # with lock:   # 这里上锁是为了保证取数的时候，一一从data里取，有顺序，如果不用顺序的话，则不用锁。
     while data:
-        str = data.pop()
+        str = data.pop() 
         qq.put(str)  # pop 方法取最后一个。
         print(threading.current_thread().name+f'推送了{str}')
 
