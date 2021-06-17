@@ -16,7 +16,7 @@ x =4
 
 def  log(fun):
     """
-    带参数的普通装饰器
+    普通装饰器
     :param fun:
     :return:
     """
