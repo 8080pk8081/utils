@@ -91,13 +91,13 @@ with open()
 """注册/登录功能"""
 username  = input("请输入你要注册的用户名：")
 password = input("请输入你要注册的密码：")
-with open("./file/list_login.txt",mode="w",encoding='utf-8') as f2:
+with open("../../语法/file/list_login.txt", mode="w", encoding='utf-8') as f2:
     f2.write("{username}\n{password}".format(username = username,password =password))
 print("恭喜你注册成功")
 print("开始登录!")
 username = input("请输入你要登录的用户名：\n")
 
-with open("./file/list_login.txt",mode="r+",encoding='utf-8') as f3:
+with open("../../语法/file/list_login.txt", mode="r+", encoding='utf-8') as f3:
     line  = f3.readline().strip('\n')   #第一行已读
     print(line,type(line))
     if username == line:

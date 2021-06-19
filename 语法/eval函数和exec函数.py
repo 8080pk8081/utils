@@ -40,3 +40,14 @@ exec(ss)
 file = 'exec_debug.text'
 with open(file,'r') as f:
     exec(f.read())
+
+
+str = """
+from time import sleep
+def load():
+    sleep(1)
+    return 1
+if __name__ == '__main__':
+    print(load())
+"""
+exec (str)

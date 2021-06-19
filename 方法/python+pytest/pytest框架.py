@@ -18,4 +18,4 @@ def test_string():
     assert  hasattr(t,'aa')
 
 if __name__ == '__main__':
-    pytest.main(['pytest框架.py'])
+    pytest.main(['python+pytest.py'])
