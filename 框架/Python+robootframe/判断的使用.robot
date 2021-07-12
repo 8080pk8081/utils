@@ -13,3 +13,13 @@ Run Keyword If后执行多个关键字
     ...         Run Keywords    log    nice 
     ...         AND     log      nice2
     ...         AND     log         nice3
+
+
+
+FOR  ${i}  IN   RANGE   ${vrrp_bild_time}    ${vrrp_bild_time_max}
+    Login To SDWAN    ${VRRP_backup}
+    ${ha_backup}=    API请求    ${HA_requests}      VRRP功能状态   ${VRRP_backup}
+    Login To SDWAN    ${VRRP_master}
+    ${ha_master}=    API请求    ${HA_requests}      VRRP功能状态   ${VRRP_master}
+    exit for loop if    'FAULT' not in ${ha_backup}   and 'MASTER' not in ${ha_backup}  and 'BACKUP' in ${ha_backup}  and  'FAULT' not in ${ha_master}   and 'MASTER' in ${ha_backup}  and 'BACKUP' not in ${ha_master}
+END
